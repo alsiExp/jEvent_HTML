@@ -1,4 +1,4 @@
-/*
+
 @media (min-width: 544px) {
 
 }
@@ -11,6 +11,98 @@
 
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1270px) {
 
-}*/
+}
+@media (min-width: 1920px) {
+
+}
+
+body {
+    padding-top: 70px;
+}
+.content-search {
+    margin-top: 10px;
+}
+.content-header h2 {
+    margin-top: 10px;
+}
+.sidebar .nav .btn .fa {
+    margin-right: 3px;
+}
+.media .media-deadline {
+    padding: 6px;
+}
+.media .task-user-count-label:hover,
+.media .task-comments-count-label:hover,
+.media .task-read-more-button:hover {
+    text-decoration: none;
+}
+.media .task-user-count-label,
+.media .task-comments-count-label,
+.media .task-read-more-button .btn {
+    margin-top: 5px;
+}
+
+.sidebar .nav-stacked .create-new .btn-default {
+    background-color: #5cb85c;
+    color: #fff;
+}
+.sidebar .nav-stacked .create-new .btn-default:hover {
+    color: #333;
+}
+
+.task-lists .task-new .task-icon .fa:before{
+    content: "\f067";
+    color: #2ecc71;
+}
+.task-lists .task-pause .task-icon .fa:before{
+    content: "\f28c";
+    color: #f1c40f;
+}
+.task-lists .task-in-work .task-icon .fa:before{
+    content: "\f118";
+    color: #2ecc71;
+}
+.task-lists .task-in-work-deadline-24 .task-icon .fa:before{
+    content: "\f12a";
+    color: #e67e22;
+    padding-left: 12px;
+    padding-right: 15px;
+}
+.task-lists .task-in-work-deadline-3 .task-icon .fa:before{
+    content: "\f1e2";
+    color: #c0392b;
+}
+.task-lists .task-success .task-icon .fa:before{
+     content: "\f046";
+     color: #2ecc71;
+ }
+.task-lists .task-failed .task-icon .fa:before{
+    content: "\f05e";
+    color: #c0392b;
+}
+.task-lists .task .task-footer .fa{
+     color: #999;
+ }
+
+.task-lists .task {
+    margin-top: 35px;
+}
+
+.footer {
+   background: #303641 none repeat scroll 0 0;
+    margin-top: 50px;
+    padding-bottom: 50px;
+    padding-top: 20px;
+}
+.footer h4{
+    color: #ddd;
+    padding-left: 15px;
+}
+.footer .nav a{
+    color: #fff;
+}
+.footer .nav a:hover{
+    color: #333;
+}
