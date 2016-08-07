@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>jEvent - Шаблон страницы</title>
+
+    <!-- CSS -->
+    <link href="../css/normalize.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/font-awesome.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container-fluid">
+    <section class="row" id="navigation">
+        <!--top menu here -->
+        <!--from __data-source.html-->
+    </section>
+
+    <section class="row" id="main-content">
+
+        <div id="left-menu" class="col-sm-3 col-md-3 col-lg-2 hidden-xs sidebar">
+            <!--Left content menu here-->
+            <!--from __data-source.html-->
+        </div>
+
+        <div class="col-sm-9  col-md-9 col-lg-10 main">
+            <!-- Content here -->
+
+
+        </div>
+
+    </section>
+        <!--footer here -->
+        <!--from __data-source.html-->
+    <section id="footer" class="row footer">
+
+    </section>
+</div>
+
+
+<!-- javascript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="../js/tether.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script>
+//    add header navigation
+    $( "#navigation" ).load( "../je_templates/__data-source.html #navigation nav" );
+//    add footer
+    $( "#footer" ).load( "../je_templates/__data-source.html #footer .container" );
+//    add left menu for tasks
+    $( "#left-menu" ).load( "../je_templates/__data-source.html #left-task-menu" );
+</script>
+</body>
+</html>
