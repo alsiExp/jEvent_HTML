@@ -106,3 +106,35 @@ body {
 .footer .nav a:hover{
     color: #333;
 }
+
+.team-user-select {
+    min-height: 180px;
+}
+.color-red {
+    color: #d43f3a;
+}
+.color-green {
+    color: #398439;
+}
+
+#statusLog .status-log-img {
+    max-width: 64px;
+}
+.task-status-creation-time {
+    font-size: 12px;
+    color: #949494;
+}
+.task-status-autor-name {
+    font-size: 12px;
+    font-weight: bold;
+    color: #ec5956;
+}
+.additional-fields {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+.additional-fields input {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
