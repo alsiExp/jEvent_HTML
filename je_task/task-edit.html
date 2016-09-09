@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>jEvent - Редактирование заачи</title>
+
+    <!-- CSS -->
+    <link href="../css/normalize.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/font-awesome.css" rel="stylesheet">
+
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <!--for bootstrap datetimepicker-->
+    <link href="../css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <!--for wysihtml textarea editor-->
+    <link href="../css/bootstrap-wysihtml5.css" rel="stylesheet">
+</head>
+<body>
+<div class="container-fluid">
+    <section class="row" id="navigation">
+        <!--top menu here -->
+        <!--from __data-source.html-->
+    </section>
+
+    <section class="row" id="main-content">
+
+        <div id="left-menu" class="col-sm-3 col-md-3 col-lg-2 hidden-xs sidebar">
+            <!--Left content menu here-->
+            <!--from __data-source.html-->
+        </div>
+
+        <div class="col-sm-9  col-md-9 col-lg-10 main">
+            <!-- Content here -->
+            <div class="row action-buttons">
+                <button id="btn-save-exit" type="button" class="btn btn-default"><i class="fa fa-floppy-o color-green"
+                                                                                    aria-hidden="true"></i> Сохранить и
+                    закрыть
+                </button>
+                <button id="btn-save" type="button" class="btn btn-success"><i class="fa fa-check-square-o"
+                                                                               aria-hidden="true"></i> Сохранить
+                </button>
+                <button id="btn-cancel" type="button" class="btn btn-default"><i class="fa fa-ban color-red"
+                                                                                 aria-hidden="true"></i> Отменить
+                </button>
+
+            </div>
+            <h1>Редактирование задачи</h1>
+            <div class="col-lg-5 col-md-7">
+                <form id="taskForm">
+                    <div class="form-group">
+                        <label for="taskName">Название задачи</label>
+                        <input type="text" class="form-control" id="taskName"
+                               value="Уточнить тему выступления Шипилева"
+                               placeholder="Название задачи">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="shortDescription">Краткое описание задачи</label>
+                        <textarea type="text" class="form-control" id="shortDescription" name="shortDescription"
+                                  placeholder="Краткое описание задачи" rows="4">
+                            Новая задача, с которой еще никто не взаимодействовал.
+<br>Нужно написать, а лучше позвонить Алексею и уточнить окончательная ли тема выступления та, которая сейчас есть у нас.
+                        </textarea>
+                    </div>
+
+                    <!--datepickers -->
+                    <div class="form-group">
+                        <label for="taskStartDateTime">Дата старта задачи</label>
+                        <div class='input-group date' id='taskStartDateTime'>
+                            <input type='text' class="form-control" readonly="readonly"/>
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskEndDateTime">Дата дэдлайна</label>
+                        <div class='input-group date' id='taskEndDateTime'>
+                            <input type='text' class="form-control" readonly="readonly"/>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <!--datepickers end-->
+
+                    <div class="form-group">
+                        <label for="fullDescription">Подробное описание задачи</label>
+                        <textarea type="text" class="form-control" id="fullDescription" name="fullDescription"
+                                  placeholder="Подробное описание задачи" rows="10">
+                        Нужно позвонить Алексею Шипилеву.<br>
+                            <ul><li>А можно</li><li>делать</li><li><i>списки</i></li></ul>
+                            <ol><li>и даже</li><li><b>нумерованные!</b><br></li></ol>
+                        </textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="teamUserSelect">Исполнители</label>
+                        <select multiple class="form-control team-user-select" id="teamUserSelect">
+                            <!--value is the TeamUser id-->
+                            <option value="1">Алексей Фёдоров</option>
+                            <option value="2">Андрей Дмитриев</option>
+                            <option value="3" selected>Екатерина Курилова</option>
+                            <option value="4">Иван Долгов</option>
+                            <option value="5" selected>Руслан Ахметзянов</option>
+                            <option value="6">Екатерина Мамедова</option>
+                            <option value="7">Антон Филёв</option>
+                            <option value="8">Максим Зверев</option>
+                            <option value="9">Яна Пилюгина</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="statusSelect">Изменить статус</label>
+                        <select id="statusSelect" class="form-control">
+                            <option name="statusNew">Новая</option>
+                            <option name="statusPaused">Приостановлена</option>
+                            <option name="statusInWork" selected>В работе</option>
+                            <option name="statusFailed">Провалена</option>
+                            <option name="statusSuccess">Выполена</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="newStatusDescription">Комментарий смены статуса</label>
+                        <textarea type="text" class="form-control" id="newStatusDescription" name="newStatusDescription"
+                                  placeholder="Обязательный комментарий для смены статуса" rows="3"></textarea>
+                    </div>
+
+                    <div id="statusLog" class="row status-log">
+                        <h4>Процесс работы</h4>
+                        <!--TODO with new description -->
+
+                        <div id="taskStatus81" class="media thumbnail">
+                            <div class="caption">
+                                <div class="media-left">
+
+                                        <img class="media-object img-circle status-log-img" src="../img/team/kurilova.jpg">
+
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Изменение статуса - в работе</h4>
+                                    <p>Еще какое-то важное сообщение... Donec vitae sapien ut libero venenatis faucibus.
+                                        Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.</p>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 task-status-autor-name">
+                                        Екатерина Курилова
+                                    </div>
+                                    <div class="task-status-creation-time">
+                                        15.08.2016 11:00
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="taskStatus11" class="media thumbnail">
+                            <div class="caption">
+                                <div class="media-left">
+
+                                        <img class="media-object img-circle status-log-img" src="../img/team/dmitriev.jpg">
+
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Новая задача</h4>
+                                    <p>Создана новая задача <i>(сгенерированно автоматически)</i></p>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 task-status-autor-name">
+                                        Андрей Дмитриев
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 task-status-creation-time">
+                                        15.08.2016 09:30
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="text" class="hidden" name="attachableEvents" id="labelAttachableEvents">
+                    <input type="text" class="hidden" name="attachableVisitors" id="labelAttachableVisitors">
+                    <input type="text" class="hidden" name="attachablePartners" id="labelAttachablePartners">
+                    <button id="task-form-submint" type="submit" class="btn btn-default hidden">Submit</button>
+                </form>
+            </div>
+
+            <div class="col-lg-3 col-lg-offset-1 col-md-4 col-md-offset-1">
+                <!-- status control -->
+                <!--TODO: panel with added Attachable objects and hidden labels in form -->
+
+            </div>
+
+        </div>
+
+    </section>
+    <!--footer here -->
+    <!--from __data-source.html-->
+    <section id="footer" class="row footer">
+
+    </section>
+</div>
+
+
+<!-- javascript -->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/tether.js"></script>
+<script src="../js/bootstrap.js"></script>
+<!-- wysiwyg editor from https://github.com/jhollingworth/bootstrap-wysihtml5-->
+<script src="../js/wysihtml5-0.3.0.js"></script>
+<script src="../js/bootstrap-wysihtml5.js"></script>
+
+
+<script src="../js/custom.js"></script>
+
+<script>
+    $(function () {
+        $("#shortDescription").wysihtml5();
+//        $("#shortDescription").val() - return actual textarea value
+        $("#fullDescription").wysihtml5();
+    });
+</script>
+
+<script>
+    //    add header navigation
+    $("#navigation").load("../je_templates/__data-source.html #navigation nav");
+    //    add footer
+    $("#footer").load("../je_templates/__data-source.html #footer .container");
+    //    add left menu for tasks
+    $("#left-menu").load("../je_templates/__data-source.html #left-task-menu");
+</script>
+
+<!--for bootstrap datetimepicker-->
+<script src="../js/moment-with-locales.js"></script>
+<script src="../js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        $('#taskStartDateTime').datetimepicker({
+            defaultDate: "2016-08-15 09:30",
+            locale: 'ru',
+
+        });
+        $('#taskEndDateTime').datetimepicker({
+            defaultDate: "2016-09-15 17:00",
+            locale: 'ru',
+            useCurrent: false //Important!
+        });
+        $("#taskStartDateTime").on("dp.change", function (e) {
+            $('#taskEndDateTime').data("DateTimePicker").minDate(e.date);
+        });
+        $("#taskEndDateTime").on("dp.change", function (e) {
+            $('#taskStartDateTime').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+</script>
+</body>
+</html>
