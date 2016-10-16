@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>jEvent - Шаблон страницы</title>
+
+    <!-- CSS -->
+    <link href="../css/normalize.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/font-awesome.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <!--for bootstrap datetimepicker-->
+    <link href="../css/bootstrap-datetimepicker.css" rel="stylesheet">
+
+    <!--for wysihtml textarea editor-->
+    <link href="../css/bootstrap-wysihtml5.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container-fluid">
+    <section class="row" id="navigation">
+        <!--top menu here -->
+        <!--from __data-source.html-->
+    </section>
+
+    <section class="row" id="main-content">
+
+        <div id="left-menu" class="col-sm-3 col-md-3 col-lg-2 hidden-xs sidebar">
+            <!--Left content menu here-->
+            <!--from __data-source.html-->
+        </div>
+
+        <div class="col-sm-9  col-md-9 col-lg-10 main">
+            <div class="row action-buttons">
+                <button id="btn-save-exit" type="button" class="btn btn-default"><i class="fa fa-floppy-o color-green" aria-hidden="true"></i> Сохранить и закрыть</button>
+                <button id="btn-save" type="button" class="btn btn-success"><i class="fa fa-check-square-o" aria-hidden="true"></i> Сохранить</button>
+                <button id="btn-cancel" type="button" class="btn btn-default"><i class="fa fa-ban color-red" aria-hidden="true"></i> Отменить</button>
+
+            </div>
+            <h1>Новый посетитель</h1>
+            <div class="col-lg-5 col-md-8">
+                <form id="task-form">
+                    <div class="form-group">
+                        <label for="visitorName">Имя и фамилия</label>
+                        <input type="text" class="form-control" name="visitorName" id="visitorName" placeholder="Имя и фамилия посетителя">
+                    </div>
+
+                    <div class="form-group">
+                        <div>
+                        <label>Пол</label>
+                        </div>
+                        <label class="radio-inline">
+                            <input type="radio" name="visitorSex" id="sexMale" value="sexMale"> Мужской
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="visitorSex" id="sexFemale" value="sexFemale"> Женский
+                        </label>
+                    </div>
+
+                    <!--datepickers -->
+                    <div class="form-group">
+                        <label for="visitorBirthDate">День рождения</label>
+                        <div class='input-group date' id='visitorBirthDate'>
+                            <input type='text' name ="visitorBirthDate" class="form-control"/>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <!--datepickers end-->
+
+                    <div class="form-group">
+                        <label for="visitorPhone">Основной телефон</label>
+                        <input type="tel" class="form-control" name="visitorPhone" id="visitorPhone" placeholder="+7-921-123-45-67">
+                        <div class="additional-fields" id="additionalPhones">
+
+                        </div>
+                        <a id="addAdditionalPhones" class="btn btn-primary">Добавить еще</a>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="visitorEmail">Основной Email</label>
+                        <input type="email" class="form-control" name="visitorEmail" id="visitorEmail" placeholder="visitor@gmail.com">
+                        <div class="additional-fields" id="additionalEmails">
+
+                        </div>
+                        <a id="addAdditionalEmails" class="btn btn-primary">Добавить еще</a>
+                    </div>
+
+                    <div class="form-group">
+                        <label  for="visitorGitHub">GitHub профиль</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">https://github.com/</div>
+                            <input type="text" class="form-control" id="visitorGitHub" placeholder="$username">
+                        </div>
+                     </div>
+
+                    <div class="form-group">
+                        <label  for="visitorGitHub">LinkedIn профиль</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">https://www.linkedin.com/in/</div>
+                            <input type="text" class="form-control" id="visitorLinkedIn" placeholder="$username">
+                        </div>
+                    </div>
+
+                    <button id="task-form-submint" type="submit" class="btn btn-default hidden">Submit</button>
+                </form>
+            </div>
+
+
+        </div>
+
+    </section>
+        <!--footer here -->
+        <!--from __data-source.html-->
+    <section id="footer" class="row footer">
+
+    </section>
+</div>
+
+
+<!-- javascript -->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/tether.js"></script>
+<script src="../js/bootstrap.js"></script>
+<!-- wysiwyg editor from https://github.com/jhollingworth/bootstrap-wysihtml5-->
+<script src="../js/wysihtml5-0.3.0.js"></script>
+<script src="../js/bootstrap-wysihtml5.js"></script>
+
+
+<script src="../js/custom.js"></script>
+
+
+<script>
+//    add header navigation
+    $( "#navigation" ).load( "../je_templates/__data-source.html #navigation nav" );
+//    add footer
+    $( "#footer" ).load( "../je_templates/__data-source.html #footer .container" );
+//    add left menu for tasks
+    $( "#left-menu" ).load( "../je_templates/__data-source.html #left-visitor-menu" );
+</script>
+
+<!--for bootstrap datetimepicker-->
+<!--https://eonasdan.github.io/bootstrap-datetimepicker/-->
+<script src="../js/moment-with-locales.js"></script>
+<script src="../js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#visitorBirthDate').datetimepicker({
+            locale: 'ru',
+            viewMode: 'years',
+            format: 'DD.MM.YYYY'
+        });
+    });
+</script>
+</body>
+</html>

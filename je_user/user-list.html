@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>jEvent - Список пользователей</title>
+
+    <!-- CSS -->
+    <link href="../css/normalize.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/font-awesome.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container-fluid">
+    <section class="row" id="navigation">
+        <!--top menu here -->
+        <!--from __data-source.html-->
+    </section>
+
+    <section class="row" id="main-content">
+
+        <div id="left-menu" class="col-sm-3 col-md-3 col-lg-2 hidden-xs sidebar">
+            <!--Left content menu here-->
+            <!--from __data-source.html-->
+        </div>
+
+        <div class="col-sm-9  col-md-9 col-lg-10 main">
+            <!-- Content here -->
+            <table class="table table-hover avatar-table">
+                <thead>
+                <tr>
+                    <th class="avatar"></th>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>Активен</th>
+                    <th>Роли</th>
+                    <th>Управление</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th class="avatar" scope="row"><img class="media-object img-circle img-responsive" src="../img/team/fedorov.jpg"></th>
+                    <td>Алексей</td>
+                    <td>Фёдоров</td>
+                    <td><button type="button" class="btn btn-xs btn-primary" disabled="disabled">Активен</button></td>
+                    <td>
+                        <button type="button" class="btn btn-xs btn-success" disabled="disabled">User</button>
+                        <button type="button" class="btn btn-xs btn-primary" disabled="disabled">Admin</button>
+                    </td>
+                    <td class="cell-btn-edit"><button type="button" class="btn btn-success" href="#">Редактировать</button> </td>
+                </tr>
+                <tr>
+
+                <tr>
+                    <th class="avatar" scope="row"><img class="media-object img-circle img-responsive" src="../img/team/dmitriev.jpg"></th>
+                    <td>Андрей</td>
+                    <td>Дмитриев</td>
+                    <td><button type="button" class="btn btn-xs btn-primary" disabled="disabled">Активен</button></td>
+                    <td>
+                        <button type="button" class="btn btn-xs btn-success" disabled="disabled">User</button>
+                        <button type="button" class="btn btn-xs btn-primary" disabled="disabled">Admin</button>
+                    </td>
+                    <td class="cell-btn-edit"><button type="button" class="btn btn-success" href="#">Редактировать</button> </td>
+                </tr>
+                <tr>
+
+                <tr>
+                    <th class="avatar" scope="row"><img class="media-object img-circle img-responsive" src="../img/team/kurilova.jpg"></th>
+                    <td>Екатерина</td>
+                    <td>Курилова</td>
+                    <td><button type="button" class="btn btn-xs btn-primary" disabled="disabled">Активен</button></td>
+                    <td>
+                        <button type="button" class="btn btn-xs btn-success" disabled="disabled">User</button>
+                        <button type="button" class="btn btn-xs btn-primary" disabled="disabled">Admin</button>
+                    </td>
+                    <td class="cell-btn-edit"><button type="button" class="btn btn-success" href="#">Редактировать</button> </td>
+                </tr>
+                <tr>
+
+                <tr>
+                    <th class="avatar" scope="row"><img class="media-object img-circle img-responsive" src="../img/team/ahmetzyanov.jpg"></th>
+                    <td>Руслан</td>
+                    <td>Ахметзянов</td>
+                    <td><button type="button" class="btn btn-xs btn-danger" disabled="disabled">Не активен</button></td>
+                    <td>
+                        <button type="button" class="btn btn-xs btn-success" disabled="disabled">User</button>
+                    </td>
+                    <td class="cell-btn-edit"><button type="button" class="btn btn-success" href="#">Редактировать</button> </td>
+                </tr>
+                <tr>
+
+                <tr>
+                    <th class="avatar" scope="row"><img class="media-object img-circle img-responsive" src="../img/team/zverev.jpg"></th>
+                    <td>Максим</td>
+                    <td>Зверев</td>
+                    <td><button type="button" class="btn btn-xs btn-primary" disabled="disabled">Активен</button></td>
+                    <td>
+                        <button type="button" class="btn btn-xs btn-success" disabled="disabled">User</button>
+                    </td>
+                    <td class="cell-btn-edit"><button type="button" class="btn btn-success" href="#">Редактировать</button> </td>
+                </tr>
+                <tr>
+
+                <tr>
+                    <th class="avatar" scope="row"><img class="media-object img-circle img-responsive" src="../img/team/pilugina.jpg"></th>
+                    <td>Яна</td>
+                    <td>Пилюгина</td>
+                    <td><button type="button" class="btn btn-xs btn-primary" disabled="disabled">Активен</button></td>
+                    <td>
+                        <button type="button" class="btn btn-xs btn-success" disabled="disabled">User</button>
+                    </td>
+                    <td class="cell-btn-edit"><button type="button" class="btn btn-success" href="#">Редактировать</button> </td>
+                </tr>
+                <tr>
+
+                </tbody>
+            </table>
+
+
+        </div>
+
+    </section>
+    <!--footer here -->
+    <!--from __data-source.html-->
+    <section id="footer" class="row footer">
+
+    </section>
+</div>
+
+
+<!-- javascript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="../js/tether.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script>
+    //    add header navigation
+    $("#navigation").load("../je_templates/__data-source.html #navigation nav");
+    //    add footer
+    $("#footer").load("../je_templates/__data-source.html #footer .container");
+    //    add left menu for tasks
+    $("#left-menu").load("../je_templates/__data-source.html #left-user-menu");
+</script>
+</body>
+
+</html>

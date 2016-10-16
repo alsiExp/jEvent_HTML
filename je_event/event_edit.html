@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>jEvent - Шаблон страницы</title>
+
+    <!-- CSS -->
+    <link href="../css/normalize.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/font-awesome.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+    <!--for bootstrap datetimepicker-->
+    <link href="../css/bootstrap-datetimepicker.css" rel="stylesheet">
+
+    <!--for wysihtml textarea editor-->
+    <link href="../css/bootstrap-wysihtml5.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container-fluid">
+    <section class="row" id="navigation">
+        <!--top menu here -->
+        <!--from __data-source.html-->
+    </section>
+
+    <section class="row" id="main-content">
+
+        <div id="left-menu" class="col-sm-3 col-md-3 col-lg-2 hidden-xs sidebar">
+            <!--Left content menu here-->
+            <!--from __data-source.html-->
+        </div>
+
+        <div class="col-sm-9  col-md-9 col-lg-10 main">
+            <!-- Content here -->
+            <div class="row action-buttons">
+                <button id="btn-save-exit" type="button" class="btn btn-default"><i class="fa fa-floppy-o color-green"
+                                                                                    aria-hidden="true"></i> Сохранить и
+                    закрыть
+                </button>
+                <button id="btn-save" type="button" class="btn btn-success"><i class="fa fa-check-square-o"
+                                                                               aria-hidden="true"></i> Сохранить
+                </button>
+                <button id="btn-cancel" type="button" class="btn btn-default"><i class="fa fa-ban color-red"
+                                                                                 aria-hidden="true"></i> Отменить
+                </button>
+
+            </div>
+            <h1>Редактирование мероприятия</h1>
+            <form id="eventForm">
+                <div class="col-lg-5 col-md-7">
+                <ul class="list-group">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">
+                        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <span class="content">Dapibus ac facilisis in</span></li>
+
+                </ul>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addRate">
+                    Добавить тариф
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="addRate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+        <!--footer here -->
+        <!--from __data-source.html-->
+    <section id="footer" class="row footer">
+
+    </section>
+</div>
+
+
+<!-- javascript -->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>-->
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/tether.js"></script>
+<script src="../js/bootstrap.js"></script>
+<!-- wysiwyg editor from https://github.com/jhollingworth/bootstrap-wysihtml5-->
+<script src="../js/wysihtml5-0.3.0.js"></script>
+<script src="../js/bootstrap-wysihtml5.js"></script>
+
+
+<script src="../js/custom.js"></script>
+
+<script>
+    $(".list-group li").each(function(index, elem) {
+        console.log(index);
+        console.log($(elem).find(".content").text())
+    });
+</script>
+
+
+<script>
+//    add header navigation
+    $( "#navigation" ).load( "../je_templates/__data-source.html #navigation nav" );
+//    add footer
+    $( "#footer" ).load( "../je_templates/__data-source.html #footer .container" );
+//    add left menu for tasks
+    $( "#left-menu" ).load( "../je_templates/__data-source.html #left-task-menu" );
+</script>
+</body>
+</html>
