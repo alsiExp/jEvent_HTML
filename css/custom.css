@@ -188,3 +188,27 @@ body {
 .avatar-table .cell-btn-edit {
     padding-top: 13px !important;
 }
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.visitor-menu button {
+    border-width: 0;
+}
+
+.visitor-img {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.visitor-img img {
+    max-width: 120px;
+    max-height: 120px;
+
+    border: 1px solid #ebeff2;
+}
