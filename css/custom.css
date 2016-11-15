@@ -65,6 +65,17 @@ body {
     margin-bottom: 20px;
 }
 
+.control-panel-row {
+    margin-bottom: 20px;
+}
+
+.control-panel-row .content-header {
+    margin-top: 10px;
+}
+.control-panel-row .control-panel-label {
+    margin-top: 5px;
+    text-align: right;
+}
 
 .sidebar .nav-stacked .create-new .btn-default:hover {
     color: #333;
@@ -258,4 +269,8 @@ visitor list
     margin: 0 0 20px;
     padding: 5px 10px;
     line-height: 1.1;
+}
+
+.menu-control-panel {
+    padding: 20px 0;
 }
