@@ -220,6 +220,64 @@
 
     </section>
 
+    <!--parts of event view-->
+    <section class="row">
+        <!--left menu for event list-->
+        <div class="col-sm-3 col-md-3 col-lg-2 hidden-xs sidebar">
+            <div id="left-event-view-menu">
+                <ul class="nav nav-tabs nav-stacked">
+                    <li class="create-new"><a class="btn btn-default" href="../je_task/task-new.html"><i
+                            class="fa fa-plus-circle"
+                            aria-hidden="true"></i> Новая конференция</a>
+                    </li>
+
+
+                </ul>
+
+                <div class="menu-control-panel">
+                    <button type="button" class="btn btn-info btn-block" data-toggle="button" aria-pressed="false"
+                            autocomplete="off">
+                        Скрыть прошедшие
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-9  col-md-9 col-lg-10 main">
+            <!-- search panel -->
+            <div id="left-event-view-search">
+                <div class="row control-panel-row">
+                    <div class="content-header col-lg-8">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label control-panel-label" for="sort-by">Сортировка</label>
+                            <div class="col-sm-3">
+                                <select id="sort-by" class="col-sm-3 form-control">
+                                    <option>По алфавиту</option>
+                                    <option>По статусу</option>
+                                    <option>По по статусу (возрастание)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="content-search col-lg-4">
+
+                        <form class="input-group">
+                            <input type="text" class="form-control" placeholder="Поиск спикера">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Найти</button>
+                          </span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
     <section class="row">
 
         <div class="col-sm-3 col-md-3 col-lg-2 hidden-xs sidebar">
