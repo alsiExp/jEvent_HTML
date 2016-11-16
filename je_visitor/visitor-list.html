@@ -27,24 +27,15 @@
         </div>
 
         <div class="col-sm-9  col-md-9 col-lg-10 main">
+
             <!-- Content here -->
-            <div class="row header-row">
-                <div class="content-header col-lg-8">
-                    <h2>Посетители</h2>
-                </div>
-
-
-                <div class="content-search col-lg-4">
-
-                    <form class="input-group">
-                        <input type="text" class="form-control" placeholder="Поиск посетителя">
-                          <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Найти</button>
-                          </span>
-                    </form>
-                </div>
+            <div class="header-row">
+                <h2>Все спикеры</h2>
             </div>
 
+            <div id="search-panel">
+
+            </div>
 
             <div class="row">
 
@@ -288,6 +279,8 @@
     $("#footer").load("../je_templates/__data-source.html #footer .container");
     //    add left menu for tasks
     $("#left-menu").load("../je_templates/__data-source.html #left-visitor-menu");
+    //    add search panel
+    $( "#search-panel" ).load( "../je_templates/__data-source.html #visitor-list-search" );
     $(function() {
         $('.visitor-card').matchHeight(true);
     });

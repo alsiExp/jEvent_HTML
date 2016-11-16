@@ -27,13 +27,15 @@
         </div>
 
         <div class="col-sm-9  col-md-9 col-lg-10 main">
-            <div id="search-panel">
 
-            </div>
             <!-- Content here -->
 
             <div class="header-row">
                 <h2>Конференция: jPoint 2016</h2>
+            </div>
+
+            <div id="search-panel">
+
             </div>
 
             <div>
@@ -104,7 +106,13 @@
                     </div>
 
                     <div role="tabpanel" class="tab-pane" id="conference">
-                        2...
+                        <p>А что тут можно выводить?</p>
+                        <ul>
+                            <li>Дата проведения</li>
+                            <li>Место проведения</li>
+                            <li>Количество утвержденных спикеров</li>
+                            <li>Количество проданных билетов (ели вообще мы их отслеживаем, а не получаем инфу по факту отзыва)</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -134,7 +142,7 @@
     //    add left menu
     $( "#left-menu" ).load( "../je_templates/__data-source.html #left-event-view-menu" );
     //    add search panel
-    $( "#search-panel" ).load( "../je_templates/__data-source.html #left-event-view-search" );
+    $( "#search-panel" ).load( "../je_templates/__data-source.html #event-view-search" );
 </script>
 </body>
 

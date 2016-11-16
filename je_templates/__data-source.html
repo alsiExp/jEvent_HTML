@@ -38,9 +38,9 @@
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-haspopup="true" aria-expanded="false">Мероприятия <span class="caret"></span></a>
+                               aria-haspopup="true" aria-expanded="false">Конференции <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Все мероприятия</a></li>
+                                <li><a href="../je_event/event-list.html">Все мероприятия</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#">Новое мероприятие</a></li>
                             </ul>
@@ -48,10 +48,11 @@
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-haspopup="true" aria-expanded="false">Посетители <span class="caret"></span></a>
+                               aria-haspopup="true" aria-expanded="false">Спикеры <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="../je_visitor/visitor-new.html">Новый посетитель</a></li>
-                                <li><a href="../je_visitor/visitor-list.html">Все посетители</a></li>
+                                <li><a href="../je_visitor/visitor-list.html">Все спикеры</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="../je_visitor/visitor-new.html">Новый спикер</a></li>
 
                             </ul>
                         </li>
@@ -60,25 +61,10 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true" aria-expanded="false">Партнеры <span class="caret"></span></a>
                             <ul class="dropdown-menu">
+                                <li><b>  В разработке</b></li>
+                                <li role="separator" class="divider"></li>
                                 <li><a href="#">Новый партнер</a></li>
                                 <li><a href="#">Все партнеры</a></li>
-                                <li><a href="#">Написать партнеру</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="dropdown hidden-sm">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-haspopup="true" aria-expanded="false">CMS <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Новая форма</a></li>
-                                <li><a href="#">Все формы</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Новая ссылка</a></li>
-                                <li><a href="#">Все ссылки</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Экспорт данных</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Массовая рассылка</a></li>
                             </ul>
                         </li>
 
@@ -86,22 +72,23 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true" aria-expanded="false">Аналитика <span class="caret"></span></a>
                             <ul class="dropdown-menu">
+                                <li><b>  В разработке</b></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Спикеры</a></li>
+                                <li><a href="#">Конференции</a></li>
                                 <li><a href="#">Партнеры</a></li>
-                                <li><a href="#">Посетители</a></li>
-                                <li><a href="#">Формы</a></li>
-                                <li><a href="#">Сайты</a></li>
                             </ul>
                         </li>
 
                         <li class="dropdown active">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-haspopup="true" aria-expanded="false">Задачи <span class="caret"></span> <span
-                                    class="label label-warning">3</span></a>
+                               aria-haspopup="true" aria-expanded="false">Задачи <span class="caret"></span>
+                                <span class="label label-warning">1</span>
+                            </a>
                             <ul class="dropdown-menu">
-                                <li><a href="../je_task/task-new.html"><i class="fa fa-plus-circle"
-                                                                          aria-hidden="true"></i> Новая задача</a>
-                                </li>
-                                <li><a href="../je_task/task-list.html"><i class="fa fa-list-ul" aria-hidden="true"></i>
+                                <li><b>  В разработке</b></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#"><i class="fa fa-list-ul" aria-hidden="true"></i>
                                     Все задачи</a></li>
                                 <li><a href="#"><i class="fa fa-archive" aria-hidden="true"></i> Архив задач</a></li>
                             </ul>
@@ -188,7 +175,7 @@
 
         <div class="col-sm-9  col-md-9 col-lg-10 main">
             <!-- search panel -->
-            <div id="left-event-list-search">
+            <div id="event-list-search">
                 <div class="row control-panel-row">
                     <div class="content-header col-lg-8">
                         <div class="form-group">
@@ -226,26 +213,34 @@
         <div class="col-sm-3 col-md-3 col-lg-2 hidden-xs sidebar">
             <div id="left-event-view-menu">
                 <ul class="nav nav-tabs nav-stacked">
-                    <li class="create-new"><a class="btn btn-default" href="../je_task/task-new.html"><i
+                    <li><b>Спикеры</b></li>
+                    <li class="create-new"><a class="btn btn-default" href="#"><i
                             class="fa fa-plus-circle"
-                            aria-hidden="true"></i> Новая конференция</a>
+                            aria-hidden="true"></i> Новый спикер</a>
+                    </li>
+
+                    <li><b>Конференция</b></li>
+                    <li><a class="btn btn-default" href="#">
+                        <i class="fa fa-pencil"aria-hidden="true"></i>
+                        Редактировать</a>
+                    </li>
+                    <li><a class="btn btn-default" href="#">
+                        <i class="fa fa-trash-o "aria-hidden="true"></i>
+                        Удалить</a>
                     </li>
 
 
                 </ul>
 
                 <div class="menu-control-panel">
-                    <button type="button" class="btn btn-info btn-block" data-toggle="button" aria-pressed="false"
-                            autocomplete="off">
-                        Скрыть прошедшие
-                    </button>
+
                 </div>
             </div>
         </div>
 
         <div class="col-sm-9  col-md-9 col-lg-10 main">
             <!-- search panel -->
-            <div id="left-event-view-search">
+            <div id="event-view-search">
                 <div class="row control-panel-row">
                     <div class="content-header col-lg-8">
                         <div class="form-group">
@@ -254,7 +249,7 @@
                                 <select id="sort-by" class="col-sm-3 form-control">
                                     <option>По алфавиту</option>
                                     <option>По статусу</option>
-                                    <option>По по статусу (возрастание)</option>
+                                    <option>По статусу (возрастание)</option>
                                 </select>
                             </div>
                         </div>
@@ -285,18 +280,46 @@
                 <ul class="nav nav-tabs nav-stacked">
                     <li class="create-new"><a class="btn btn-default" href="../je_visitor/visitor-new.html"><i
                             class="fa fa-plus-circle"
-                            aria-hidden="true"></i> Новый посетитель</a>
+                            aria-hidden="true"></i> Новый спикер
+                    </a>
                     </li>
-                    <li><a class="btn btn-default" href="../je_visitor/visitor-list.html"><i class="fa fa-list-ul"
-                                                                                             aria-hidden="true"></i> Все
-                        посетители</a>
+                    <li><a class="btn btn-default" href="../je_visitor/visitor-list.html">
+                        <i class="fa fa-list-ul" aria-hidden="true"></i>
+                        Все спикеры
+                    </a>
                     </li>
                 </ul>
             </div>
         </div>
 
         <div class="col-sm-9  col-md-9 col-lg-10 main">
-            <!-- Content here -->
+            <div id="visitor-list-search">
+                <div class="row control-panel-row">
+                    <div class="content-header col-lg-8">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label control-panel-label" for="sort-by">Сортировка</label>
+                            <div class="col-sm-3">
+                                <select id="sort-by" class="col-sm-3 form-control">
+                                    <option>По алфавиту</option>
+                                    <option>По статусу</option>
+                                    <option>По статусу (возрастание)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="content-search col-lg-4">
+
+                        <form class="input-group">
+                            <input type="text" class="form-control" placeholder="Поиск спикера">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Найти</button>
+                          </span>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
         </div>
 
@@ -336,27 +359,13 @@
                     <li><a href="#">Написать партнеру</a></li>
                 </ul>
             </div>
-            <div class="col-lg-2 col-md-3 col-sm-3">
-                <h4>CMS</h4>
-                <ul class="nav nav-pills nav-stacked">
-                    <li><a href="#">Новая форма</a></li>
-                    <li><a href="#">Все формы</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Новая ссылка</a></li>
-                    <li><a href="#">Все ссылки</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Экспорт данных</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Массовая рассылка</a></li>
-                </ul>
-            </div>
+
             <div class="col-lg-2 col-md-3 col-sm-3">
                 <h4>Аналитика</h4>
                 <ul class="nav nav-pills nav-stacked">
                     <li><a href="#">Партнеры</a></li>
                     <li><a href="#">Посетители</a></li>
-                    <li><a href="#">Формы</a></li>
-                    <li><a href="#">Сайты</a></li>
+
                 </ul>
             </div>
             <div class="col-lg-6 col-md-3 col-sm-3">
