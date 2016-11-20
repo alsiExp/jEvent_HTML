@@ -1,0 +1,35 @@
+[
+  {
+    "id": 300001,
+    "name": "Антон Семенченко",
+    "description": "Активист сообщества автоматизаторов www.COMAQA.BY, активист сообщества «суровой» разработки C++ и co www.CoreHard.by, соучередитель компании DPI.Solutions. Менеджер в компании EPAM Systems. Более 13 лет опыта в IT, основная специализация: автоматизированное тестирование, низкоуровневая разработка на C++ и ниже. Менеджмент, продажи.",
+    "employer": "EPAM",
+    "partnerId": null,
+    "speechId": [
+      200001
+    ],
+    "twitter": "https://twitter.com/comaqa"
+  },
+  {
+    "id": 300002,
+    "name": "Anton Angelov",
+    "description": "Anton is a Quality Assurance Architect at Progress. He is passionate about automation testing and designing test harness and tools, having the best industry development practices in mind. Furthermore, he is an active blogger and the founder of Automate The Planet. Anton is ardent about technologies such as C#, .NET Framework, T4, WPF, SQL Server, Selenium WebDriver, Jenkins. He won MVP status at Code Project (2016) and MVB (Most Valuable Blogger) at DZone. Outside his work at Progress, Anton a trainer at ITCE where he leads trainings related to ISTQB exams. More information about Anton in his blog: <a href='http://automatetheplanet.com/about-anton-angelov/'>http://automatetheplanet.com/about-anton-angelov/</a>.",
+    "employer": "Progress",
+    "partnerId": null,
+    "speechId": [
+      200002
+    ],
+    "twitter": null
+  },
+  {
+    "id": 300003,
+    "name": "Anton Angelov",
+    "description": "Anton is a Quality Assurance Architect at Progress. He is passionate about automation testing and designing test harness and tools, having the best industry development practices in mind. Furthermore, he is an active blogger and the founder of Automate The Planet. Anton is ardent about technologies such as C#, .NET Framework, T4, WPF, SQL Server, Selenium WebDriver, Jenkins. He won MVP status at Code Project (2016) and MVB (Most Valuable Blogger) at DZone. Outside his work at Progress, Anton a trainer at ITCE where he leads trainings related to ISTQB exams. More information about Anton in his blog: <a href='http://automatetheplanet.com/about-anton-angelov/'>http://automatetheplanet.com/about-anton-angelov/</a>.",
+    "employer": "Progress",
+    "partnerId": null,
+    "speechId": [
+      200002
+    ],
+    "twitter": "https://twitter.com/ilarihenrik"
+  }
+]

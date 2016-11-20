@@ -1,0 +1,58 @@
+[
+  {
+    "id": 100001,
+    "logo": "../img/conf/heisenbug.png",
+    "name": "Гейзенбаг",
+    "version": "2016 Moscow",
+    "date": "10 декабря 2016",
+    "isFinished": false,
+    "approvedSpeakers": [
+      110001,
+      110002,
+      110003,
+      110004
+    ],
+    "newSpeakers": [
+      110101,
+      110102,
+      110103
+    ]
+  },
+  {
+    "id": 100002,
+    "logo": "../img/conf/heisenbug.png",
+    "name": "Гейзенбаг",
+    "version": "2017 Piter",
+    "date": "1 июня 2017",
+    "isFinished": false,
+    "approvedSpeakers": [
+      110002,
+      110005,
+      110007
+    ],
+    "newSpeakers": [
+      110103,
+      110113
+    ]
+  },
+  {
+    "id": 100003,
+    "logo": "../img/conf/jpoint.png",
+    "name": "jPoint",
+    "version": "2016 Moscow",
+    "date": "22-23 апреля 2016",
+    "isFinished": true,
+    "approvedSpeakers": [
+      110002,
+      110005,
+      110007,
+      110011,
+      110001
+    ],
+    "newSpeakers": [
+      110103,
+      110122,
+      110113
+    ]
+  }
+]

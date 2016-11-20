@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>jEvent - Шаблон страницы</title>
+
+    <!-- CSS -->
+    <link href="../css/normalize.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="../css/font-awesome.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container-fluid">
+    <section class="row" id="navigation">
+        <!--top menu here -->
+        <!--from __data-source.html-->
+    </section>
+
+    <section class="row" id="main-content">
+
+        <div id="left-menu" class="col-sm-3 col-md-3 col-lg-2 hidden-xs sidebar">
+            <!--Left content menu here-->
+            <div id="left-event-list-menu">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="subheader">Действия</li>
+                    <li role="separator" class="divider"></li>
+                    <li id="create-new" class="create-new"><a class="" href="#"><i
+                            class="fa fa-plus"
+                            aria-hidden="true"></i>Создать</a>
+                    </li>
+                    <li id="add-from-jira" class=""><a class="" href="#"><i
+                            class="fa fa-cloud-download"
+                            aria-hidden="true"></i>Добавить из jira</a>
+                    </li>
+                    <li id="update" class=""><a class="" href="#"><i
+                            class="fa fa-refresh"
+                            aria-hidden="true"></i>Обновить</a>
+                    </li>
+
+
+                </ul>
+                <form id="control-panel" class="menu-control-panel">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="subheader">Фильтрация</li>
+                        <li role="separator" class="divider"></li>
+
+                        <li class="">
+                            <div class="checkbox">
+                                <label>
+                                    <input id="hideIsFinished" type="checkbox" value="hideIsFinished"> Скрыть прошедшие
+                                </label>
+                            </div>
+                        </li>
+
+                        <li id="versions" class="">
+                            <!--versions from json-->
+                        </li>
+
+                        <li class="">
+                            <button type="button" class="btn btn-info" data-toggle="button" aria-pressed="false"
+                                    autocomplete="off">
+                                Применить
+                            </button>
+                        </li>
+                    </ul>
+                </form>
+
+
+            </div>
+        </div>
+
+        <div class="col-sm-9  col-md-9 col-lg-10 main">
+
+            <!-- Content here -->
+            <div class="header-row">
+                <h2>Список конференций</h2>
+            </div>
+
+            <div id="search-panel">
+                <div id="event-list-search">
+                    <div class="row control-panel-row">
+                        <div id="sort-panel" class="content-header col-lg-8">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label control-panel-label"
+                                       for="sort-by">Сортировка</label>
+                                <div class="col-sm-3">
+                                    <select id="sort-by" class="col-sm-3 form-control">
+                                        <option>По алфавиту</option>
+                                        <option>По дате начала</option>
+                                        <option>По дате начала desc</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="content-search col-lg-4">
+
+                            <form class="input-group">
+                                <input type="text" class="form-control" placeholder="Поиск задачи">
+                          <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Найти</button>
+                          </span>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <table id="event-list" class="table table-hover avatar-table">
+                <thead>
+                <tr>
+                    <th class="avatar"></th>
+                    <th>Название</th>
+                    <th>Версия</th>
+                    <th class="table-sm-center">Доклады</th>
+                    <th class="table-sm-center">Заявки</th>
+                    <th>Дата проведения</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </section>
+    <!--footer here -->
+    <!--from __data-source.html-->
+    <section id="footer" class="row footer">
+
+    </section>
+</div>
+
+
+<!-- javascript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.3.1/js/tether.min.js"></script>
+
+<!--<script src="../js/bootstrap.js"></script>-->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<script>
+    //    add header navigation
+    $("#navigation").load("../je_templates/__data-source.html #navigation nav");
+    //    add footer
+    $("#footer").load("../je_templates/__data-source.html #footer .container");
+
+</script>
+
+<script>
+    var events;
+    var versions = new Set();
+
+    var elem = $("#event-list tbody");
+
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+
+
+    function printEventList(el, event) {
+        $(el).append('<tr>' +
+                '<th class="avatar" scope="row"><img class="media-object img-circle img-responsive" src="' + event.logo + '"></th>' +
+                '<td><a href="' + '../event/view.html?id=' + event.id + '">' + event.name + '</a></td>' +
+                '<td>' + event.version + '</td>' +
+                '<td class="table-sm-center">' + event.approvedSpeakers.length + '</td>' +
+                '<td class="table-sm-center">' + event.newSpeakers.length + '</td>' +
+                '<td>' + event.date + '</td>' +
+                '</tr>' +
+                '<tr>');
+    }
+
+    function addVersions(v) {
+        var str1 = '<p>Версии</p>';
+        var str3 = '</div>';
+        var str2 = '';
+        v.forEach(function (entry) {
+            str2 = str2 + '<div class="checkbox">' +
+                    '<label>' +
+                    '<input type="checkbox" value="' + entry + '" checked> ' + entry +
+                    '</label>' +
+                    '</div>';
+        });
+        $("#versions").append(str1 + str2 + str3);
+    }
+    function init() {
+        $.getJSON('../data/events.json', function (data) {
+            events = data;
+            events.forEach(function (entry) {
+                printEventList(elem, entry);
+                versions.add(entry.version);
+            })
+            addVersions(versions);
+        });
+    }
+    function update() {
+        $.getJSON('../data/events.json', function (data) {
+            events = data;
+        });
+    }
+
+
+    init();
+
+
+    $("#update").click(function () {
+        elem.empty();
+        $("#versions").empty();
+
+        init();
+    });
+
+
+</script>
+</body>
+
+</html>
