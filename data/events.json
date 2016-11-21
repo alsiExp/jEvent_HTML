@@ -6,17 +6,19 @@
     "version": "2016 Moscow",
     "date": "10 декабря 2016",
     "isFinished": false,
-    "approvedSpeakers": [
-      110001,
-      110002,
-      110003,
-      110004
+    "approvedSpeeches": [
+      200001,
+      200002,
+      200003
     ],
-    "newSpeakers": [
-      110101,
-      110102,
-      110103
-    ]
+    "newSpeeches": [
+    ],
+    "partners": [
+
+    ],
+    "jiraName": "HEISENBUG",
+    "salesCount": 17,
+    "salesSum": 200000
   },
   {
     "id": 100002,
@@ -25,15 +27,18 @@
     "version": "2017 Piter",
     "date": "1 июня 2017",
     "isFinished": false,
-    "approvedSpeakers": [
-      110002,
-      110005,
-      110007
+    "approvedSpeeches": [
+      200001,
+      200003
     ],
-    "newSpeakers": [
-      110103,
-      110113
-    ]
+    "newSpeeches": [
+    ],
+    "partners": [
+
+    ],
+    "jiraName": "HEISENBUG",
+    "salesCount": 4,
+    "salesSum": 25000
   },
   {
     "id": 100003,
@@ -42,17 +47,15 @@
     "version": "2016 Moscow",
     "date": "22-23 апреля 2016",
     "isFinished": true,
-    "approvedSpeakers": [
-      110002,
-      110005,
-      110007,
-      110011,
-      110001
+    "approvedSpeeches": [
     ],
-    "newSpeakers": [
-      110103,
-      110122,
-      110113
-    ]
+    "newSpeeches": [
+    ],
+    "partners": [
+
+    ],
+    "jiraName": "JPOINT",
+    "salesCount": 658,
+    "salesSum": 1000000
   }
 ]

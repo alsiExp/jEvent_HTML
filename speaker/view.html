@@ -27,10 +27,6 @@
                 <ul class="nav nav-pills nav-stacked">
                     <li class="subheader">Действия</li>
                     <li role="separator" class="divider"></li>
-                    <li id="create-new" class="create-new"><a class="" href="#"><i
-                            class="fa fa-plus"
-                            aria-hidden="true"></i>Добавить спикера</a>
-                    </li>
                     <li id="add-from-jira" class=""><a class="" href="#"><i
                             class="fa fa-cloud-download"
                             aria-hidden="true"></i>Обновить из jira</a>
@@ -52,23 +48,7 @@
                 </ul>
                 <form id="control-panel" class="menu-control-panel">
                     <ul class="nav nav-pills nav-stacked">
-                        <li class="subheader">Фильтрация</li>
-                        <li role="separator" class="divider"></li>
 
-                        <li class="">
-
-                        </li>
-
-                        <li id="statuses" class="">
-                            <!--versions from json-->
-                        </li>
-
-                        <li class="">
-                            <button type="button" class="btn btn-info" data-toggle="button" aria-pressed="false"
-                                    autocomplete="off">
-                                Применить
-                            </button>
-                        </li>
                     </ul>
                 </form>
 
@@ -81,10 +61,10 @@
             <!-- Content here -->
 
             <div class="header-row">
-                <h2 id="conf-name"></h2>
+                <h2 id="page-name"></h2>
             </div>
 
-            <div id="search-panel">
+<!--            <div id="search-panel">
                 <div id="event-view-search">
                     <div class="row control-panel-row">
                         <div class="content-header col-lg-8">
@@ -113,41 +93,69 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
             <div>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#speakers" aria-controls="speakers" role="tab"
-                                                              data-toggle="tab">Спикеры</a></li>
-                    <li role="presentation"><a href="#conference" aria-controls="conference" role="tab"
-                                               data-toggle="tab">Конференция</a></li>
+                    <li role="presentation" class="active"><a href="#events" aria-controls="events" role="tab"
+                                                              data-toggle="tab">Участие в конференциях</a></li>
+                    <li role="presentation"><a href="#description" aria-controls="description" role="tab"
+                                               data-toggle="tab">Спикер</a></li>
 
                 </ul>
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="speakers">
-                        <table id="speaker-table" class="table table-hover avatar-table">
+                    <div role="tabpanel" class="tab-pane active" id="events">
+                        <table id="event-list" class="table table-hover avatar-table">
                             <thead>
                             <tr>
                                 <th class="avatar"></th>
-                                <th>Имя</th>
-                                <th>Тема</th>
+                                <th>Название</th>
+                                <th>Версия</th>
+                                <th>Дата проведения</th>
+                                <th>Рейтинг спикера</th>
                                 <th>Статус в jira</th>
-                                <th>Источник</th>
-                                <th>Рейтинги</th>
                             </tr>
                             </thead>
                             <tbody>
-
 
                             </tbody>
                         </table>
                     </div>
 
-                    <div role="tabpanel" class="tab-pane" id="conference">
+                    <div role="tabpanel" class="tab-pane" id="description">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 visitor-card">
 
+                            <div class="visitor-img">
+                                <img src="../img/visitors/shipilev.jpg" class="img-circle">
+                            </div>
+                            <div class="visitor-description">
+                                <p class="visitor-name">Алексей Шипилёв</p>
+                                <p><strong>Телефон:</strong> <span class="visitor-info">+7-999-000-00-00</span></p>
+                                <p><strong>Email:</strong> <span class="visitor-info">shipilev@gmail.com</span></p>
+                                <p><strong>Twitter:</strong> <span class="visitor-info"><a href="https://twitter.com/shipilev"
+                                                                                           target="_blank">@shipilev</a></span>
+                                </p>
+                                <p><strong>Компания:</strong> <span class="visitor-info">Red Hat</span></p>
+
+                                <p class="visitor-cost"><strong>Стоимость:</strong> <span class="visitor-info">-150,000</span>
+                                </p>
+                            </div>
+                            <div class="visitor-notes">
+                                <blockquote>
+                                    <p>Небольшая, но важная заметка об Алексее. Это первый абзац.</p>
+                                    <p>А это второй.</p>
+                                </blockquote>
+                            </div>
+                            <div class="visitor-icons">
+                                <a href="#" type="button" class="btn btn-success btn-lg btn-send-message">Написать письмо</a>
+                            </div>
+
+                        </div>
+                    </div>
                     </div>
                 </div>
 
@@ -185,11 +193,16 @@
     var eventMap = new Map();
     var speechMap = new Map();
     var speakerMap = new Map();
-    var statuses = new Set();
 
     var statusMap = new Map();
 
-    var eventId = null;
+    var speakerId = null;
+
+    function init() {
+        speakerId = parseInt(getUrlParameter('id'));
+        initStatusMap();
+        loadData();
+    }
 
     function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -222,36 +235,60 @@
         $.getJSON('../data/speeches.json', function (data) {
             data.forEach(function (entry) {
                 speechMap.set(entry.id, entry);
-                if (entry.status != null) {
-                    statuses.add(statusMap.get(entry.status));
-                }
             });
             loadComplete();
         })
     }
     function loadComplete() {
         if (eventMap.size != 0 && speechMap.size != 0 && speakerMap.size != 0) {
-            addStatuses(statuses);
-            $("#speaker-table tbody").empty();
-            var event = eventMap.get(eventId);
-//            add conf name
-            $("#conf-name").append('Конференция: ' + event.name + ' ' + event.version);
+            var speaker = speakerMap.get(speakerId);
+//            $("#event-list tbody").empty();
+//            $("#description").empty();
 
-            event.approvedSpeeches.forEach(function (num) {
+//          add speaker name
+            $("#page-name").append('Спикер: ' + speaker.name);
+
+
+            speaker.speechId.forEach(function (num) {
                 var speech = speechMap.get(parseInt(num));
-                var speaker = speakerMap.get(parseInt(speech.speakerId));
-//                var event = eventMap.get(parseInt(speech.eventId));
-                printSpeeches($("#speaker-table tbody"), speech, speaker, event);
+                var event = eventMap.get(parseInt(speech.eventId));
+                printEventList($("#event-list tbody"), speech, speaker, event);
             });
-            event.newSpeeches.forEach(function (num) {
-                var speech = speechMap.get(parseInt(num));
-                var speaker = speakerMap.get(parseInt(speech.speakerId));
-//                var event = eventMap.get(parseInt(speech.eventId));
-                printSpeeches($("#speaker-table tbody"), speech, speaker, event);
-            });
-            printEventContent(event);
+
+            printSpeakerContent(speaker);
 
         }
+    }
+
+    function printEventList(el, speech, speaker, event) {
+        var strRating = '';
+        if(speech.rating != null) {
+                strRating = '<div class="">' + event.name + ' : ' +  rating * 100 + '%</div>';
+            }
+
+        $(el).append('<tr>' +
+                '<th class="avatar" scope="row"><img class="media-object img-circle img-responsive" src="' + event.logo + '"></th>' +
+                '<td><a href="' + '../event/view.html?id=' + event.id + '">' + event.name + '</a></td>' +
+                '<td>' + event.version + '</td>' +
+/*                '<td class="table-sm-center">' + event.approvedSpeeches.length + '</td>' +
+                '<td class="table-sm-center">' + event.newSpeeches.length + '</td>' +*/
+                '<td>' + event.date + '</td>' +
+                '<td>' + strRating + '</td>' +
+                '<td><button type="button" class="btn btn-xs btn-primary" disabled="disabled">' + statusMap.get(parseInt(speech.status)) + '</button></td>' +
+                '</tr>' +
+                '<tr>');
+    }
+
+    function printSpeakerContent(speaker) {
+/*        var el = $("#conference");
+        el.empty();
+        el.append(
+                '<p><b>Название проекта в jira:</b> ' +  event.jiraName + '; </p>' +
+                '<p><b>Версия:</b> ' +  event.version + '; </p>' +
+                '<p><b>Дата проведения:</b> ' +  event.date + '; </p>' +
+                '<p><b>Количество утвержденных спикеров:</b> ' +  event.approvedSpeeches.length + '; </p>' +
+                '<p><b>Количество проданных билетов:</b> ' +  event.salesCount + '; </p>'
+        );*/
     }
 
     function initStatusMap() {
@@ -264,65 +301,6 @@
         statusMap.set(7, "Фидбек участников");
         statusMap.set(8, "Анализ");
         statusMap.set(9, "Закрыта");
-    }
-
-    function init() {
-        eventId = parseInt(getUrlParameter('id'));
-        initStatusMap();
-        loadData();
-    }
-
-    function printSpeeches(el, speech, speaker, event) {
-        var strSource = '';
-        var strRating = '';
-        if (speech.source == 'jira') {
-            strSource = '<button type="button" class="btn btn-xs btn-primary" disabled="disabled">jira</button>';
-        } else {
-            strSource = '<button type="button" class="btn btn-xs btn-warning" disabled="disabled">Вручную</button>';
-        }
-        speaker.speechId.forEach(function (spId) {
-            var rating = speechMap.get(parseInt(spId)).rating;
-            if(rating != null) {
-                strRating = strRating + '<div class="">' + event.name + ' : ' +  rating * 100 + '%</div>';
-            }
-        });
-
-
-        $(el).append('<tr>' +
-                '<th class="avatar" scope="row"><img class="media-object img-circle img-responsive" src="' + speaker.photo + '"></th>' +
-                '<td><a href="' + '../speaker/view.html?id=' + speaker.id + '">' + speaker.name + '</a></td>' +
-                '<td><a href="' + '../speech/view.html?id=' + speech.id + '">' + speech.name + '</a></td>' +
-                '<td><button type="button" class="btn btn-xs btn-primary" disabled="disabled">' + statusMap.get(parseInt(speech.status)) + '</button></td>' +
-                '<td>' + strSource + '</td>' +
-                '<td>' + strRating + '</td>' +
-                '</tr>' +
-                '<tr>');
-    }
-    function printEventContent(event) {
-//        TODO: add partners
-        var el = $("#conference");
-        el.empty();
-        el.append(
-                '<p><b>Название проекта в jira:</b> ' +  event.jiraName + '; </p>' +
-                '<p><b>Версия:</b> ' +  event.version + '; </p>' +
-                '<p><b>Дата проведения:</b> ' +  event.date + '; </p>' +
-                '<p><b>Количество утвержденных спикеров:</b> ' +  event.approvedSpeeches.length + '; </p>' +
-                '<p><b>Количество проданных билетов:</b> ' +  event.salesCount + '; </p>'
-        );
-    }
-
-
-    function addStatuses(v) {
-        var str = '<p>Показать статусы:</p>';
-        $("#statuses").empty();
-        v.forEach(function (entry) {
-            str = str + '<div class="checkbox">' +
-                    '<label>' +
-                    '<input type="checkbox" value="' + entry + '" checked> ' + entry +
-                    '</label>' +
-                    '</div>';
-        });
-        $("#statuses").append(str);
     }
 
 

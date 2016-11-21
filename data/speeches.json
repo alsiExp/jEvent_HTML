@@ -10,12 +10,7 @@
     "eventId": 100001,
     "status": 4,
     "source": "manual",
-    "ratings": [
-      {
-        "eventId": 100001,
-        "value": "86.3%"
-      }
-    ]
+    "rating": null
   },
   {
     "id": 200002,
@@ -27,7 +22,7 @@
     "eventId": 100001,
     "status": 4,
     "source": "jira",
-    "ratings": null
+    "rating": null
   },
   {
     "id": 200003,
@@ -40,6 +35,6 @@
     "eventId": 100001,
     "status": 4,
     "source": "jira",
-    "ratings": null
+    "rating": null
   }
 ]

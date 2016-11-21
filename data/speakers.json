@@ -8,7 +8,8 @@
     "speechId": [
       200001
     ],
-    "twitter": "https://twitter.com/comaqa"
+    "twitter": "https://twitter.com/comaqa",
+    "photo": "http://images.contentful.com/ut4a3ciohj8i/23AdjmhKh6EY4uka6cc6mi/f8abe29396aecaa0aae20cfa70eb30bb/1901911_697550007010985_8753690125754449271_n.jpg?w=200"
   },
   {
     "id": 300002,
@@ -19,17 +20,19 @@
     "speechId": [
       200002
     ],
-    "twitter": null
+    "twitter": null,
+    "photo": "http://images.contentful.com/ut4a3ciohj8i/5c1Hx70OJGmKUWCgkgA6aI/53c03904c85c7fedd793e9af97e161a7/anton-angelov-square-4.png?w=200"
   },
   {
     "id": 300003,
-    "name": "Anton Angelov",
-    "description": "Anton is a Quality Assurance Architect at Progress. He is passionate about automation testing and designing test harness and tools, having the best industry development practices in mind. Furthermore, he is an active blogger and the founder of Automate The Planet. Anton is ardent about technologies such as C#, .NET Framework, T4, WPF, SQL Server, Selenium WebDriver, Jenkins. He won MVP status at Code Project (2016) and MVB (Most Valuable Blogger) at DZone. Outside his work at Progress, Anton a trainer at ITCE where he leads trainings related to ISTQB exams. More information about Anton in his blog: <a href='http://automatetheplanet.com/about-anton-angelov/'>http://automatetheplanet.com/about-anton-angelov/</a>.",
-    "employer": "Progress",
+    "name": "Ilari Henrik Aegerter",
+    "description": "<p>Ilari Henrik Aegerter's formal studies have brought him from General Linguistics and Sociology to Software Engineering and Software Testing. He so much liked the profession that he continued to intensively work on his skills. Being a context-driven tester is the natural outcome and he believes that software testing is not a clerical job but a profession, which needs a high level of proficiency. Ilari Henrik Aegerter has 10+ years of experience in the field, coming from the medical software domain at Phonak AG and progressing to e-commerce at eBay. He is now the Managing Director of House of Test GmbH and he believes that there is still a lot of work to be done for excellent software testing.</p> <p>In 2013 he co-founded the International Society for Software Testing (ISST). He is currently president of the organization. In 2015 he was elected into the board of the Association for Software Testing (AST), where he acts as VP of Marketing. Since he likes talking, he often presents at international software testing conferences and he is also frequently invited to speak at company events. From time to time he does workshops on Software Testing, which he enjoys tremendously.</p>",
+    "employer": "House of Test GmbH",
     "partnerId": null,
     "speechId": [
       200002
     ],
-    "twitter": "https://twitter.com/ilarihenrik"
+    "twitter": "https://twitter.com/ilarihenrik",
+    "photo": "http://images.contentful.com/ut4a3ciohj8i/MZxG8vt6KYQ0aS0Mkw4c2/ca58fd5d4446f64502c8bfb9f0cb3d0a/Ilari_3_square_10.12.15.jpg?w=200"
   }
 ]
