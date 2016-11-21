@@ -127,32 +127,7 @@
 
                     <div role="tabpanel" class="tab-pane" id="description">
                     <div class="row">
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 visitor-card">
-
-                            <div class="visitor-img">
-                                <img src="../img/visitors/shipilev.jpg" class="img-circle">
-                            </div>
-                            <div class="visitor-description">
-                                <p class="visitor-name">Алексей Шипилёв</p>
-                                <p><strong>Телефон:</strong> <span class="visitor-info">+7-999-000-00-00</span></p>
-                                <p><strong>Email:</strong> <span class="visitor-info">shipilev@gmail.com</span></p>
-                                <p><strong>Twitter:</strong> <span class="visitor-info"><a href="https://twitter.com/shipilev"
-                                                                                           target="_blank">@shipilev</a></span>
-                                </p>
-                                <p><strong>Компания:</strong> <span class="visitor-info">Red Hat</span></p>
-
-                                <p class="visitor-cost"><strong>Стоимость:</strong> <span class="visitor-info">-150,000</span>
-                                </p>
-                            </div>
-                            <div class="visitor-notes">
-                                <blockquote>
-                                    <p>Небольшая, но важная заметка об Алексее. Это первый абзац.</p>
-                                    <p>А это второй.</p>
-                                </blockquote>
-                            </div>
-                            <div class="visitor-icons">
-                                <a href="#" type="button" class="btn btn-success btn-lg btn-send-message">Написать письмо</a>
-                            </div>
+                        <div id="speaker-card" class="col-lg-3 col-md-6 col-sm-6 col-xs-12 visitor-card">
 
                         </div>
                     </div>
@@ -280,15 +255,34 @@
     }
 
     function printSpeakerContent(speaker) {
-/*        var el = $("#conference");
-        el.empty();
-        el.append(
-                '<p><b>Название проекта в jira:</b> ' +  event.jiraName + '; </p>' +
-                '<p><b>Версия:</b> ' +  event.version + '; </p>' +
-                '<p><b>Дата проведения:</b> ' +  event.date + '; </p>' +
-                '<p><b>Количество утвержденных спикеров:</b> ' +  event.approvedSpeeches.length + '; </p>' +
-                '<p><b>Количество проданных билетов:</b> ' +  event.salesCount + '; </p>'
-        );*/
+        var elCard = $("#speaker-card");
+        elCard.empty();
+        elCard.append(
+               '<div class="visitor-img">' +
+               '<img src="' + speaker.photo + '" class="img-circle">' +
+               '</div>' +
+               '<div class="visitor-description">' +
+               '<p class="visitor-name">' + speaker.name +'</p>' +
+               '<p><strong>Телефон:</strong> <span class="visitor-info">' + speaker.phone + '</span></p>' +
+               '<p><strong>Email:</strong> <span class="visitor-info">' + speaker.email + '</span></p>' +
+               '<p><strong>Twitter:</strong> <span class="visitor-info"><a href="' + speaker.twitter + '" target="_blank">' + speaker.twitter + '</a></span></p>' +
+               '<p><strong>Компания:</strong> <span class="visitor-info">' + '' + '</span></p>'
+        );
+
+        /*
+         <div class="visitor-description">
+         <p class="visitor-name">Алексей Шипилёв</p>
+         <p><strong>Телефон:</strong> <span class="visitor-info">+7-999-000-00-00</span></p>
+         <p><strong>Email:</strong> <span class="visitor-info">shipilev@gmail.com</span></p>
+         <p><strong>Twitter:</strong> <span class="visitor-info"><a href="https://twitter.com/shipilev"
+         target="_blank">@shipilev</a></span>
+         </p>
+         <p><strong>Компания:</strong> <span class="visitor-info">Red Hat</span></p>
+
+         <p class="visitor-cost"><strong>Стоимость:</strong> <span class="visitor-info">-150,000</span>
+         </p>
+         </div>
+         */
     }
 
     function initStatusMap() {

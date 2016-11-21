@@ -218,7 +218,8 @@ visitor list
 */
 
 .visitor-card {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+    margin-top: 30px;
 }
 
 .visitor-menu button {

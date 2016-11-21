@@ -2,10 +2,7 @@
   {
     "id": 200001,
     "name": "«Хорошие» и «плохие» варианты параллельного запуска Selenium WebDriver тестов",
-    "description": [
-      "Параллельный запуск тестов не просто желание, но острая необходимость — стандартная задача, с которой рано или поздно столкнется каждый проект, за исключением, разве что, совсем небольших и краткосрочных. Иногда вопрос параллелизации тестов превращается в сложный или даже почти не выполнимый. Антон расскажет, как избежать подобной ситуации, какие рекомендации и инструменты существуют, какую архитектуру стоит выбрать изначально, каких решений следует избегать. Докладчик ответит на все эти актуальные вопросы и приведёт множество примеров для наглядности и практического подтверждения.",
-      "Вместе со слушателями Антон проговорит «хорошие» варианты параллельного запуска Автоматизированных тестов, но также рассмотрит ситуацию с противоположной стороны «от противного». Будет проанализирован десяток «плохих» решений по параллелизации на реальных примерах: сложных, медленных, дорогих, не эффективных. Фактически, беседа будет состоять из двух частей: «что такое хорошо и что такое плохо» в примерах, с аргументацией и рекомендациями."
-    ],
+    "description": "<p>Параллельный запуск тестов не просто желание, но острая необходимость — стандартная задача, с которой рано или поздно столкнется каждый проект, за исключением, разве что, совсем небольших и краткосрочных. Иногда вопрос параллелизации тестов превращается в сложный или даже почти не выполнимый. Антон расскажет, как избежать подобной ситуации, какие рекомендации и инструменты существуют, какую архитектуру стоит выбрать изначально, каких решений следует избегать. Докладчик ответит на все эти актуальные вопросы и приведёт множество примеров для наглядности и практического подтверждения.</p> <p>Вместе со слушателями Антон проговорит «хорошие» варианты параллельного запуска Автоматизированных тестов, но также рассмотрит ситуацию с противоположной стороны «от противного». Будет проанализирован десяток «плохих» решений по параллелизации на реальных примерах: сложных, медленных, дорогих, не эффективных. Фактически, беседа будет состоять из двух частей: «что такое хорошо и что такое плохо» в примерах, с аргументацией и рекомендациями.</p>",
     "speakerId": 300001,
     "eventId": 100001,
     "status": 4,
@@ -15,9 +12,7 @@
   {
     "id": 200002,
     "name": "Hero’s Journey to Perfect System Tests — Eight Assessment Criteria for Tests’ Architecture Design",
-    "description": [
-      "What is the quest of every QA Hero? It is to find the golden recipe for the perfect system tests’ design — describing how to achieve fast, reliable, easy to understand and maintain tests. Anton is going to tell you his story of how he managed to complete this quest. The journey is going to introduce common problems and mistakes to you in the process of designing test automation frameworks, such as not following single responsibility principle, not enough code reuse, and bad object-oriented programming (OOP) design. The author is going to share with you how he and his teammates managed to solve these issues through the application of eight assessment criteria. Usually, people want to improve their tests but do not have quality metrics to determine which version of their improvements is most beneficial to their projects. The presented assessment framework can help you to figure out which is the best possible enhancement that you need to introduce into your system tests and so make them more stable, reliable and maintainable."
-    ],
+    "description": "<p>What is the quest of every QA Hero? It is to find the golden recipe for the perfect system tests’ design — describing how to achieve fast, reliable, easy to understand and maintain tests. Anton is going to tell you his story of how he managed to complete this quest. The journey is going to introduce common problems and mistakes to you in the process of designing test automation frameworks, such as not following single responsibility principle, not enough code reuse, and bad object-oriented programming (OOP) design. The author is going to share with you how he and his teammates managed to solve these issues through the application of eight assessment criteria. Usually, people want to improve their tests but do not have quality metrics to determine which version of their improvements is most beneficial to their projects. The presented assessment framework can help you to figure out which is the best possible enhancement that you need to introduce into your system tests and so make them more stable, reliable and maintainable.</p>",
     "speakerId": 300002,
     "eventId": 100001,
     "status": 4,
@@ -27,13 +22,20 @@
   {
     "id": 200003,
     "name": "No Such Thing as Manual Testing and Other Confusions",
-    "description": [
-      "Software Testing is a young discipline and as with many new things, it is not yet fully understood. Is software testing a technical problem to be solved by engineering solutions? What exactly is the goal of testing? What can you do to become a world-class tester?",
-      "A world-class tester understands that we are confronted with a techno-human system and that our goal as testers is to extract and deliver information about the product in a way that help stakeholders to make the right decisions. Having said that, it does not make a lot of sense to distinguish between manual and automated testing as this categorization is not very helpful. Ilari Henrik Aegerter presents a model of software testing that takes both engineering and social aspects into consideration. A lively discussion during the presentation is very welcome."
-    ],
+    "description": "<p>Software Testing is a young discipline and as with many new things, it is not yet fully understood. Is software testing a technical problem to be solved by engineering solutions? What exactly is the goal of testing? What can you do to become a world-class tester?</p> <p>A world-class tester understands that we are confronted with a techno-human system and that our goal as testers is to extract and deliver information about the product in a way that help stakeholders to make the right decisions. Having said that, it does not make a lot of sense to distinguish between manual and automated testing as this categorization is not very helpful. Ilari Henrik Aegerter presents a model of software testing that takes both engineering and social aspects into consideration. A lively discussion during the presentation is very welcome.</p>",
     "speakerId": 300003,
     "eventId": 100001,
     "status": 4,
+    "source": "jira",
+    "rating": null
+  },
+  {
+    "id": 200004,
+    "name": "Stupid Metrics Tricks and How to Avoid Them",
+    "description": "<p>If you have been in software engineering for a while — or in fact just in the working world in general for a while — you’ve probably seen someone do something stupid with metrics. Such mistakes raise a whole bunch of interesting questions. What are the most common metrics mistakes? Why are they mistakes? Why do people make these mistakes? Are you making these mistakes? Why use metrics at all, when there are so many mistakes? In this talk, Rex will give real-world examples of these mistakes, explain the management and economic theories behind metrics, and help you find ways to implement metrics that aren’t stupid.</p> <p>A world-class tester understands that we are confronted with a techno-human system and that our goal as testers is to extract and deliver information about the product in a way that help stakeholders to make the right decisions. Having said that, it does not make a lot of sense to distinguish between manual and automated testing as this categorization is not very helpful. Ilari Henrik Aegerter presents a model of software testing that takes both engineering and social aspects into consideration. A lively discussion during the presentation is very welcome.<p>",
+    "speakerId": 300004,
+    "eventId": 100001,
+    "status": 3,
     "source": "jira",
     "rating": null
   }

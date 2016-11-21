@@ -2,14 +2,16 @@
   {
     "id": 300001,
     "name": "Антон Семенченко",
-    "description": "Активист сообщества автоматизаторов www.COMAQA.BY, активист сообщества «суровой» разработки C++ и co www.CoreHard.by, соучередитель компании DPI.Solutions. Менеджер в компании EPAM Systems. Более 13 лет опыта в IT, основная специализация: автоматизированное тестирование, низкоуровневая разработка на C++ и ниже. Менеджмент, продажи.",
+    "description": "<p>Активист сообщества автоматизаторов www.COMAQA.BY, активист сообщества «суровой» разработки C++ и co www.CoreHard.by, соучередитель компании DPI.Solutions. Менеджер в компании EPAM Systems. Более 13 лет опыта в IT, основная специализация: автоматизированное тестирование, низкоуровневая разработка на C++ и ниже. Менеджмент, продажи.</p>",
     "employer": "EPAM",
     "partnerId": null,
     "speechId": [
       200001
     ],
     "twitter": "https://twitter.com/comaqa",
-    "photo": "http://images.contentful.com/ut4a3ciohj8i/23AdjmhKh6EY4uka6cc6mi/f8abe29396aecaa0aae20cfa70eb30bb/1901911_697550007010985_8753690125754449271_n.jpg?w=200"
+    "photo": "http://images.contentful.com/ut4a3ciohj8i/23AdjmhKh6EY4uka6cc6mi/f8abe29396aecaa0aae20cfa70eb30bb/1901911_697550007010985_8753690125754449271_n.jpg?w=200",
+    "phone": "+7-999-000-00-00",
+    "email": "comaqa@gmail.com"
   },
   {
     "id": 300002,
@@ -21,7 +23,9 @@
       200002
     ],
     "twitter": null,
-    "photo": "http://images.contentful.com/ut4a3ciohj8i/5c1Hx70OJGmKUWCgkgA6aI/53c03904c85c7fedd793e9af97e161a7/anton-angelov-square-4.png?w=200"
+    "photo": "http://images.contentful.com/ut4a3ciohj8i/5c1Hx70OJGmKUWCgkgA6aI/53c03904c85c7fedd793e9af97e161a7/anton-angelov-square-4.png?w=200",
+    "phone": "+7-999-000-00-00",
+    "email": "angelov@gmail.com"
   },
   {
     "id": 300003,
@@ -30,9 +34,25 @@
     "employer": "House of Test GmbH",
     "partnerId": null,
     "speechId": [
-      200002
+      200003
     ],
     "twitter": "https://twitter.com/ilarihenrik",
-    "photo": "http://images.contentful.com/ut4a3ciohj8i/MZxG8vt6KYQ0aS0Mkw4c2/ca58fd5d4446f64502c8bfb9f0cb3d0a/Ilari_3_square_10.12.15.jpg?w=200"
+    "photo": "http://images.contentful.com/ut4a3ciohj8i/MZxG8vt6KYQ0aS0Mkw4c2/ca58fd5d4446f64502c8bfb9f0cb3d0a/Ilari_3_square_10.12.15.jpg?w=200",
+    "phone": "+7-999-000-00-00",
+    "email": "ilarihenrik@gmail.com"
+  },
+  {
+    "id": 300004,
+    "name": "Rex Black",
+    "description": "<p>With over 30 years of software and systems engineering experience, Rex Black is President of RBCS (www.rbcs-us.com), a testing leader, providing consulting, training, and expert services. RBCS has over 100 clients on six continents, spanning all areas of software and system development, from embedded systems to gaming software to banking and insurance to defense systems. Rex is the most prolific author practicing in the field of software testing today, having written 13 books (and counting). He is past President of the ISTQB and of the ASTQB, a co-author of many of the ISTQB syllabi, and Chair of the Agile Working Group.</p>",
+    "employer": "RBCS",
+    "partnerId": null,
+    "speechId": [
+      200004
+    ],
+    "twitter": "https://twitter.com/LaikaTestDog",
+    "photo": "http://images.contentful.com/ut4a3ciohj8i/5Iuxvmpmko4aGwuQWsSeEy/224a3234596660832823824f8760e3cc/Rex_Black.png?w=200",
+    "phone": "+7-999-000-00-00",
+    "email": "rex.black@gmail.com"
   }
 ]
