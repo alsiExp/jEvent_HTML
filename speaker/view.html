@@ -114,9 +114,11 @@
                                 <th class="avatar"></th>
                                 <th>Название</th>
                                 <th>Версия</th>
-                                <th>Дата проведения</th>
+                                <th>Доклад</th>
                                 <th>Рейтинг спикера</th>
+                                <th>Тэги</th>
                                 <th>Статус в jira</th>
+                                <th>Дата проведения</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -237,19 +239,23 @@
 
     function printEventList(el, speech, speaker, event) {
         var strRating = '';
+        var strTags = '';
         if(speech.rating != null) {
                 strRating = '<div class="">' + event.name + ' : ' +  rating * 100 + '%</div>';
             }
+        speech.tags.forEach(function(tag){
+            strTags = strTags + '<div class="speech-tag">' + tag + '</div>';
+        })
 
         $(el).append('<tr>' +
                 '<th class="avatar" scope="row"><img class="media-object img-circle img-responsive" src="' + event.logo + '"></th>' +
                 '<td><a href="' + '../event/view.html?id=' + event.id + '">' + event.name + '</a></td>' +
                 '<td>' + event.version + '</td>' +
-/*                '<td class="table-sm-center">' + event.approvedSpeeches.length + '</td>' +
-                '<td class="table-sm-center">' + event.newSpeeches.length + '</td>' +*/
-                '<td>' + event.date + '</td>' +
+                '<td><a href="' + '../speech/view.html?id=' + speech.id + '">' + speech.name + '</a></td>' +
+                '<td>' + strRating + '</td>' +
                 '<td>' + strRating + '</td>' +
                 '<td><button type="button" class="btn btn-xs btn-primary" disabled="disabled">' + statusMap.get(parseInt(speech.status)) + '</button></td>' +
+                '<td>' + event.date + '</td>' +
                 '</tr>' +
                 '<tr>');
     }

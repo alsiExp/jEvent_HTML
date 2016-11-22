@@ -7,7 +7,11 @@
     "eventId": 100001,
     "status": 4,
     "source": "manual",
-    "rating": null
+    "rating": null,
+    "tags": [
+      "#selenium",
+      "#paralell"
+    ]
   },
   {
     "id": 200002,
@@ -17,7 +21,10 @@
     "eventId": 100001,
     "status": 4,
     "source": "jira",
-    "rating": null
+    "rating": null,
+    "tags": [
+      "#automaticTesting"
+    ]
   },
   {
     "id": 200003,
@@ -27,7 +34,9 @@
     "eventId": 100001,
     "status": 4,
     "source": "jira",
-    "rating": null
+    "rating": null,
+    "tags": [
+    ]
   },
   {
     "id": 200004,
@@ -37,6 +46,9 @@
     "eventId": 100001,
     "status": 3,
     "source": "jira",
-    "rating": null
+    "rating": null,
+    "tags": [
+      "#metrics"
+    ]
   }
 ]

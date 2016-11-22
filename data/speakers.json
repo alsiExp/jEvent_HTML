@@ -11,7 +11,8 @@
     "twitter": "https://twitter.com/comaqa",
     "photo": "http://images.contentful.com/ut4a3ciohj8i/23AdjmhKh6EY4uka6cc6mi/f8abe29396aecaa0aae20cfa70eb30bb/1901911_697550007010985_8753690125754449271_n.jpg?w=200",
     "phone": "+7-999-000-00-00",
-    "email": "comaqa@gmail.com"
+    "email": "comaqa@gmail.com",
+    "cost": "-25000"
   },
   {
     "id": 300002,
@@ -25,7 +26,8 @@
     "twitter": null,
     "photo": "http://images.contentful.com/ut4a3ciohj8i/5c1Hx70OJGmKUWCgkgA6aI/53c03904c85c7fedd793e9af97e161a7/anton-angelov-square-4.png?w=200",
     "phone": "+7-999-000-00-00",
-    "email": "angelov@gmail.com"
+    "email": "angelov@gmail.com",
+    "cost": "-10000"
   },
   {
     "id": 300003,
@@ -39,7 +41,8 @@
     "twitter": "https://twitter.com/ilarihenrik",
     "photo": "http://images.contentful.com/ut4a3ciohj8i/MZxG8vt6KYQ0aS0Mkw4c2/ca58fd5d4446f64502c8bfb9f0cb3d0a/Ilari_3_square_10.12.15.jpg?w=200",
     "phone": "+7-999-000-00-00",
-    "email": "ilarihenrik@gmail.com"
+    "email": "ilarihenrik@gmail.com",
+    "cost": "-58000"
   },
   {
     "id": 300004,
@@ -53,6 +56,7 @@
     "twitter": "https://twitter.com/LaikaTestDog",
     "photo": "http://images.contentful.com/ut4a3ciohj8i/5Iuxvmpmko4aGwuQWsSeEy/224a3234596660832823824f8760e3cc/Rex_Black.png?w=200",
     "phone": "+7-999-000-00-00",
-    "email": "rex.black@gmail.com"
+    "email": "rex.black@gmail.com",
+    "cost": "-17850"
   }
 ]
