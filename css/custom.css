@@ -299,3 +299,28 @@ visitor list
     text-align: center;
     max-width: 60px;
 }
+
+.two-rows {
+    margin-top: -8px;
+}
+
+.color-gold {
+    background-color: #FFD700;
+    border-color: #FFD700;
+    color: #fff;
+}
+.color-silver {
+    background-color: #C0C0C0;
+    border-color: #C0C0C0;
+    color: #fff;
+}
+.color-bronze {
+    background-color: #cd7f32;
+    border-color: #cd7f32;
+    color: #fff;
+}
+.color-info {
+    background-color: #1E90FF;
+    border-color: #1E90FF;
+    color: #fff;
+}

@@ -6,17 +6,6 @@
     "version": "2016 Moscow",
     "date": "10 декабря 2016",
     "isFinished": false,
-    "approvedSpeeches": [
-      200001,
-      200002,
-      200003,
-      200004
-    ],
-    "newSpeeches": [
-    ],
-    "partners": [
-      400001
-    ],
     "jiraName": "HEISENBUG",
     "salesCount": 17,
     "salesSum": 200000
@@ -28,15 +17,6 @@
     "version": "2017 Piter",
     "date": "1 июня 2017",
     "isFinished": false,
-    "approvedSpeeches": [
-      200001,
-      200003
-    ],
-    "newSpeeches": [
-    ],
-    "partners": [
-
-    ],
     "jiraName": "HEISENBUG",
     "salesCount": 4,
     "salesSum": 25000
@@ -48,13 +28,6 @@
     "version": "2016 Moscow",
     "date": "22-23 апреля 2016",
     "isFinished": true,
-    "approvedSpeeches": [
-    ],
-    "newSpeeches": [
-    ],
-    "partners": [
-
-    ],
     "jiraName": "JPOINT",
     "salesCount": 658,
     "salesSum": 1000000

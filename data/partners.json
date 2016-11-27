@@ -2,25 +2,11 @@
   {
     "id": 400001,
     "name": "Epam",
-    "logo": "http://jugru.org/static/img/content/parthners/epam.png",
+    "logo": "https://pp.vk.me/c626824/v626824190/2abfe/GkXCHUEPPtk.jpg",
     "status": "1",
     "cost": "250000",
-    "contacts": [
-      {
-        "name" : "Сергей Васильев",
-        "phone": "+7-812-555-33-11",
-        "email": "epam@emam.ru",
-        "comments": null
-      },
-      {
-        "name" : "Алексей Виноградов",
-        "phone": "+7-812-555-33-11",
-        "email": "epam@emam.ru",
-        "comments": null
-      }
-    ],
-    "speeches": [
-      300001
-    ]
+    "contactName": "Сергей Васильев",
+    "contactPhone": "+7-812-555-33-11",
+    "contactEmail": "epam@emam.ru"
   }
 ]

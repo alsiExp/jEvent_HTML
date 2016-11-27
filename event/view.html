@@ -136,7 +136,7 @@
                             <thead>
                             <tr>
                                 <th class="avatar"></th>
-                                <th>Имя</th>
+                                <th>Имя и Компания</th>
                                 <th>Тема</th>
                                 <th>Тэги</th>
                                 <th>Статус в jira</th>
@@ -152,11 +152,42 @@
                     </div>
 
                     <div role="tabpanel" class="tab-pane" id="partners">
+                        <table id="partner-table" class="table table-hover avatar-table">
+                            <thead>
+                            <tr>
+                                <th class="avatar"></th>
+                                <th>Партнер</th>
+                                <th>Статус</th>
+                                <th>Спонсируют</th>
+                                <th>Представитель</th>
+                                <th>Телефон</th>
+                                <th>Email</th>
+                            </tr>
+                            </thead>
+                            <tbody>
 
+
+                            </tbody>
+                        </table>
                     </div>
 
                     <div role="tabpanel" class="tab-pane" id="conference">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <table id="event-table" class="table table-hover avatar-table">
+                                    <thead>
+                                    <tr>
+                                        <th>Поле</th>
+                                        <th>Значение</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
 
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -190,12 +221,11 @@
 
 </script>
 
+<script src="../js/parser.js" type="text/javascript"></script>
+
 <script type="text/javascript">
-    var eventMap = new Map();
-    var speechMap = new Map();
-    var speakerMap = new Map();
-    var partnerMap = new Map();
-    var statuses = new Set();
+    var map;
+    var actualSpeechStatuses = new Set();
 
     /* Enums in maps*/
     var speechStatusMap = new Map();
@@ -203,84 +233,36 @@
 
     var eventId = null;
 
-    function getUrlParameter(sParam) {
-        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-                sURLVariables = sPageURL.split('&'),
-                sParameterName,
-                i;
 
-        for (i = 0; i < sURLVariables.length; i++) {
-            sParameterName = sURLVariables[i].split('=');
 
-            if (sParameterName[0] === sParam) {
-                return sParameterName[1] === undefined ? true : sParameterName[1];
-            }
-        }
-    }
+    function displayPage() {
+        var elTableSpeaker = $("#speaker-table").find("tbody");
+        var elTablePartner = $("#partner-table").find("tbody");
+        var elTableEvent = $("#conference").find("tbody");
+        var speechCount = 0;
+        var partnerCount = 0;
 
-    function loadData() {
-        $.getJSON('../data/events.json', function (data) {
-            data.forEach(function (entry) {
-                eventMap.set(entry.id, entry);
-            });
-            loadComplete();
-        });
-        $.getJSON('../data/speakers.json', function (data) {
-            data.forEach(function (entry) {
-                speakerMap.set(entry.id, entry);
-            });
-            loadComplete();
-        });
-        $.getJSON('../data/partners.json', function (data) {
-            data.forEach(function (entry) {
-                partnerMap.set(entry.id, entry);
-            });
-            loadComplete();
-        });
-        $.getJSON('../data/speeches.json', function (data) {
-            data.forEach(function (entry) {
-                speechMap.set(entry.id, entry);
-                if (entry.status != null) {
-                    statuses.add(speechStatusMap.get(entry.status));
-                }
-            });
-            loadComplete();
-        })
-    }
-    function loadComplete() {
-        if (eventMap.size != 0 && speechMap.size != 0 && speakerMap.size != 0 && partnerMap.size != 0) {
-            var speakerCount = 0;
-            var partnerCount = 0;
-            addStatuses(statuses);
-            $("#speaker-table tbody").empty();
-            var event = eventMap.get(eventId);
+        elTableSpeaker.empty();
+        elTablePartner.empty();
+
+        var event = map.get(eventId);
 //            add conf name
-            $("#conf-name").append('Конференция: ' + event.name + ' ' + event.version);
+        $("#conf-name").append('Конференция: ' + event.name + ' ' + event.version);
 
-            event.approvedSpeeches.forEach(function (num) {
-                var speech = speechMap.get(parseInt(num));
-                var speaker  = speakerMap.get(parseInt(speech.speakerId));
+        event.speechArr.forEach(function (speech) {
+            displaySpeeches(elTableSpeaker, speech, speech.speaker, speech.event);
+            actualSpeechStatuses.add(speechStatusMap.get(speech.status));
+            speechCount++;
+        });
 
+        event.partnerArr.forEach(function (partner) {
+            displayPartner(elTablePartner, partner, event);
+            partnerCount++;
+        });
+        displayActualSpeechesStatuses(actualSpeechStatuses);
+        displayEventContent(elTableEvent, event);
+        addTabLabels(speechCount, partnerCount);
 
-//                var event = eventMap.get(parseInt(speech.eventId));
-                printSpeeches($("#speaker-table tbody"), speech, speaker, event);
-                speakerCount++;
-            });
-            event.newSpeeches.forEach(function (num) {
-                var speech = speechMap.get(parseInt(num));
-                var speaker = speakerMap.get(parseInt(speech.speakerId));
-//                var event = eventMap.get(parseInt(speech.eventId));
-                printSpeeches($("#speaker-table tbody"), speech, speaker, event);
-                speakerCount++;
-            });
-            event.partners.forEach(function (num) {
-                var partner = partnerMap.get(parseInt(num));
-                printPartner(partner);
-                partnerCount++;
-            });
-            printEventContent(event);
-            addTabLabels(speakerCount, partnerCount);
-        }
     }
 
     function initEnums() {
@@ -294,41 +276,49 @@
         speechStatusMap.set(8, "Анализ");
         speechStatusMap.set(9, "Закрыта");
 
-        partnerStatusMap.set(1, "Gold")
-        partnerStatusMap.set(2, "Silver")
-        partnerStatusMap.set(3, "Bronze")
-        partnerStatusMap.set(4, "Info")
+        partnerStatusMap.set(1, '<button type="button" class="btn btn-xs color-gold" disabled="disabled">Gold</button>');
+        partnerStatusMap.set(2, '<button type="button" class="btn btn-xs color-silver" disabled="disabled">Silver</button>');
+        partnerStatusMap.set(3, '<button type="button" class="btn btn-xs color-bronze" disabled="disabled">Bronze</button>');
+        partnerStatusMap.set(4, '<button type="button" class="btn btn-xs color-info" disabled="disabled">Info</button>');
     }
 
     function init() {
         eventId = parseInt(getUrlParameter('id'));
         initEnums();
-        loadData();
+        map = getData();
+        displayPage();
     }
 
-    function printSpeeches(el, speech, speaker, event) {
+
+    function displaySpeeches(el, speech, speaker, event) {
+        var strName = '<div class="two-rows"><a href="' + '../speaker/view.html?id=' + speaker.id + '">' + speaker.name + '</a></div>';
         var strSource = '';
         var strRating = '';
         var strTags = '';
+
+        if (speech.partner == null) {
+            strName += '<div>' + speaker.employer + '</div>';
+        } else {
+            strName += '<div> <a href="' + '../partner/view.html?id=' + speech.partner.id + '">' + speech.partner.name + '</a></div>';
+        }
 
         if (speech.source == 'jira') {
             strSource = '<button type="button" class="btn btn-xs btn-primary" disabled="disabled">jira</button>';
         } else {
             strSource = '<button type="button" class="btn btn-xs btn-warning" disabled="disabled">Вручную</button>';
         }
-        speaker.speechId.forEach(function (spId) {
-            var rating = speechMap.get(parseInt(spId)).rating;
-            if (rating != null) {
-                strRating = strRating + '<div class="">' + event.name + ' : ' + rating * 100 + '%</div>';
+        speaker.speechArr.forEach(function (speech) {
+            if (speech.rating != null) {
+                strRating = strRating + '<div class=""> <a href="' + '../event/view.html?id=' + event.id + '">' + event.name + '</a>' + ' : ' + speech.rating + '%</div>';
             }
         });
         speech.tags.forEach(function (tag) {
             strTags = strTags + '<div class="speech-tag">' + tag + '</div>';
-        })
+        });
 
         $(el).append('<tr>' +
                 '<th class="avatar" scope="row"><img class="media-object img-circle img-responsive" src="' + speaker.photo + '"></th>' +
-                '<td><a href="' + '../speaker/view.html?id=' + speaker.id + '">' + speaker.name + '</a></td>' +
+                '<td>' + strName + '</td>' +
                 '<td><a href="' + '../speech/view.html?id=' + speech.id + '">' + speech.name + '</a></td>' +
                 '<td>' + strTags + '</td>' +
                 '<td><button type="button" class="btn btn-xs btn-primary" disabled="disabled">' + speechStatusMap.get(parseInt(speech.status)) + '</button></td>' +
@@ -338,27 +328,46 @@
                 '<tr>');
     }
 
-    function printPartner(partner) {
+    function displayPartner(el, partner, event) {
+        var strSpeakers = '';
+        partner.speechArr.forEach(function (speech) {
+            if (speech.event.id == event.id) {
+                strSpeakers += '<div class=""><a href="' + '../speaker/view.html?id=' + speech.speaker.id + '">' + speech.speaker.name + '</a></div>'
+            }
+        });
 
+        $(el).append('<tr>' +
+                '<th class="avatar" scope="row"><img class="media-object img-circle img-responsive" src="' + partner.logo + '"></th>' +
+                '<td>' + partner.name + '</td>' +
+                '<td>' + partnerStatusMap.get(parseInt(partner.status)) + '</td>' +
+                '<td>' + strSpeakers + '</td>' +
+                '<td>' + partner.contactName + '</td>' +
+                '<td>' + partner.contactPhone + '</td>' +
+                '<td>' + partner.contactEmail + '</td>' +
+                '</tr>' +
+                '<tr>');
     }
 
-    function printEventContent(event) {
-//        TODO: add partners
-        var el = $("#conference");
+    function displayEventContent(el, event) {
         el.empty();
-        el.append(
-                '<p><b>Название проекта в jira:</b> ' + event.jiraName + '; </p>' +
-                '<p><b>Версия:</b> ' + event.version + '; </p>' +
-                '<p><b>Дата проведения:</b> ' + event.date + '; </p>' +
-                '<p><b>Количество утвержденных спикеров:</b> ' + event.approvedSpeeches.length + '; </p>' +
-                '<p><b>Количество проданных билетов:</b> ' + event.salesCount + '; </p>'
+        el.append('<tr>' +
+                '<th scope="row">Название проекта в jira</th>' +
+                '<td>' + event.jiraName + '</td>' +
+                '</tr>' +
+                '<th scope="row">Версия</th>' +
+                '<td>' + event.version + '</td>' +
+                '</tr>' +
+                '<th scope="row">Дата проведения</th>' +
+                '<td>' + event.date + '</td>' +
+                '</tr>'
         );
     }
 
 
-    function addStatuses(v) {
+    function displayActualSpeechesStatuses(v) {
+        var el = $('#statuses');
         var str = '<p>Показать статусы:</p>';
-        $("#statuses").empty();
+        el.empty();
         v.forEach(function (entry) {
             str = str + '<div class="checkbox">' +
                     '<label>' +
@@ -366,7 +375,7 @@
                     '</label>' +
                     '</div>';
         });
-        $("#statuses").append(str);
+        el.append(str);
     }
 
     function addTabLabels(speakerCount, partnerCount) {

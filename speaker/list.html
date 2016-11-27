@@ -64,7 +64,7 @@
                 <h2 id="page-name"></h2>
             </div>
 
-<!--            <div id="search-panel">
+            <div id="search-panel">
                 <div id="event-view-search">
                     <div class="row control-panel-row">
                         <div class="content-header col-lg-8">
@@ -93,15 +93,14 @@
                         </div>
                     </div>
                 </div>
-            </div>-->
+            </div>
 
             <div>
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#events" aria-controls="events" role="tab"
                                                               data-toggle="tab">Участие в конференциях</a></li>
-                    <li role="presentation"><a href="#description" aria-controls="description" role="tab"
-                                               data-toggle="tab">Спикер</a></li>
+
 
                 </ul>
 
@@ -112,13 +111,11 @@
                             <thead>
                             <tr>
                                 <th class="avatar"></th>
-                                <th>Название</th>
-                                <th>Версия</th>
-                                <th>Доклад</th>
-                                <th>Рейтинг доклада</th>
+                                <th>Имя</th>
+                                <th>Рейтинги</th>
                                 <th>Тэги</th>
-                                <th>Статус в jira</th>
-                                <th>Дата проведения</th>
+                                <th>Биография</th>
+                                <th>Стоимость</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -127,7 +124,7 @@
                         </table>
                     </div>
 
-                    <div role="tabpanel" class="tab-pane" id="description">
+<!--                    <div role="tabpanel" class="tab-pane" id="description">
                     <div class="row">
                         <div id="speaker-card" class="col-lg-3 col-md-6 col-sm-6 col-xs-12 visitor-card">
 
@@ -136,7 +133,7 @@
 
                         </div>
                     </div>
-                    </div>
+                    </div>-->
                 </div>
 
             </div>
@@ -174,13 +171,7 @@
 <script type="text/javascript">
     var map;
 
-    /* Enums in maps*/
-    var speechStatusMap = new Map();
-
-    var speakerId = null;
-
     function init() {
-        speakerId = parseInt(getUrlParameter('id'));
         initStatusMap();
         map = getData();
         displayPage();
