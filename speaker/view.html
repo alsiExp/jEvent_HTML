@@ -127,7 +127,7 @@
                         </table>
                     </div>
 
-                    <div role="tabpanel" class="tab-pane" id="description">
+                    <div role="tabpanel" class="tab-pane tab-offset" id="description">
                     <div class="row">
                         <div id="speaker-card" class="col-lg-3 col-md-6 col-sm-6 col-xs-12 visitor-card">
 
@@ -226,6 +226,7 @@
 
     function displaySpeakerContent(speaker) {
         var elCard = $("#speaker-card");
+        var moreInfo = $("#speaker-more-info");
         elCard.empty();
         elCard.append(
                '<div class="visitor-img">' +
@@ -239,6 +240,8 @@
                '<p><strong>Компания:</strong> <span class="visitor-info">' + speaker.employer + '</span></p>' +
                '<p><strong>Стоимость:</strong> <span class="visitor-info">' + speaker.cost + '</span></p>'
         );
+        moreInfo.empty();
+        moreInfo.append(speaker.description);
     }
 
     function initStatusMap() {

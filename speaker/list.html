@@ -107,14 +107,13 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="events">
-                        <table id="event-list" class="table table-hover avatar-table">
+                        <table id="speaker-list" class="table table-hover avatar-table">
                             <thead>
                             <tr>
                                 <th class="avatar"></th>
                                 <th>Имя</th>
                                 <th>Рейтинги</th>
                                 <th>Тэги</th>
-                                <th>Биография</th>
                                 <th>Стоимость</th>
                             </tr>
                             </thead>
@@ -172,81 +171,47 @@
     var map;
 
     function init() {
-        initStatusMap();
         map = getData();
         displayPage();
     }
 
     function displayPage() {
-
-            var speaker = map.get(speakerId);
-
-//          add speaker name
-            $("#page-name").append('Спикер: ' + speaker.name);
-
-
-            speaker.speechArr.forEach(function (speech) {
-                displayEventList($("#event-list").find("tbody"), speech, speaker, speech.event);
+            map.forEach(function (speaker) {
+                if(speaker.id > 300000 && speaker.id < 400000)
+                displayEventList($("#speaker-list").find("tbody"), speaker);
             });
-
-            displaySpeakerContent(speaker);
     }
 
-    function displayEventList(el, speech, speaker, event) {
-        var strRating = '';
+    function displayEventList(el, speaker) {
+        var strRatings = '';
         var strTags = '';
-        if(speech.rating != null) {
-                strRating = '<div class="">' + event.name + ' : ' +  rating + '%</div>';
+        var speechSet = new Set();
+        speaker.speechArr.forEach(function(speech) {
+            if(speech.rating != null) {
+                strRatings += '<div class=""><a href="' + '../event/view.html?id=' + speech.event.id + '">' + speech.event.name + '</a> : ' +  speech.rating + '%</div>';
             }
-        speech.tags.forEach(function(tag){
-            strTags = strTags + '<div class="speech-tag">' + tag + '</div>';
+            if(speech.tags != null) {
+                speech.tags.forEach(function(tag){
+                    if(!speechSet.has(tag)) {
+                        strTags += '<div class="speech-tag">' + tag + '</div>';
+                        speechSet.add(tag);
+                    }
+
+                });
+            }
         });
 
         $(el).append('<tr>' +
-                '<th class="avatar" scope="row"><img class="media-object img-circle img-responsive" src="' + event.logo + '"></th>' +
-                '<td><a href="' + '../event/view.html?id=' + event.id + '">' + event.name + '</a></td>' +
-                '<td>' + event.version + '</td>' +
-                '<td><a href="' + '../speech/view.html?id=' + speech.id + '">' + speech.name + '</a></td>' +
-                '<td>' + strRating + '</td>' +
+                '<th class="avatar" scope="row"><img class="media-object img-circle img-responsive" src="' + speaker.photo + '"></th>' +
+                '<td> <a href="../speaker/view.html?id=' + speaker.id + '">' + speaker.name + '</a></td>' +
+                '<td>' + strRatings + '</td>' +
                 '<td>' + strTags + '</td>' +
-                '<td><button type="button" class="btn btn-xs btn-primary" disabled="disabled">' + speechStatusMap.get(parseInt(speech.status)) + '</button></td>' +
-                '<td>' + event.date + '</td>' +
+                '<td>' + speaker.cost + '</td>' +
                 '</tr>' +
                 '<tr>');
     }
 
-    function displaySpeakerContent(speaker) {
-        var elCard = $("#speaker-card");
-        elCard.empty();
-        elCard.append(
-               '<div class="visitor-img">' +
-               '<img src="' + speaker.photo + '" class="img-circle">' +
-               '</div>' +
-               '<div class="visitor-description">' +
-               '<p class="visitor-name">' + speaker.name +'</p>' +
-               '<p><strong>Телефон:</strong> <span class="visitor-info">' + speaker.phone + '</span></p>' +
-               '<p><strong>Email:</strong> <span class="visitor-info">' + speaker.email + '</span></p>' +
-               '<p><strong>Twitter:</strong> <span class="visitor-info"><a href="' + speaker.twitter + '" target="_blank">' + speaker.twitter + '</a></span></p>' +
-               '<p><strong>Компания:</strong> <span class="visitor-info">' + speaker.employer + '</span></p>' +
-               '<p><strong>Стоимость:</strong> <span class="visitor-info">' + speaker.cost + '</span></p>'
-        );
-    }
-
-    function initStatusMap() {
-        speechStatusMap.set(1, "Новый");
-        speechStatusMap.set(2, "Рассмотрение заявки");
-        speechStatusMap.set(3, "Описание доклада");
-        speechStatusMap.set(4, "Тестирование, тренинги");
-        speechStatusMap.set(5, "Требует уточнения");
-        speechStatusMap.set(6, "Фидбек спикера");
-        speechStatusMap.set(7, "Фидбек участников");
-        speechStatusMap.set(8, "Анализ");
-        speechStatusMap.set(9, "Закрыта");
-    }
-
-
     init();
-
 
 </script>
 </body>

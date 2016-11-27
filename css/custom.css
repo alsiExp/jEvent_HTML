@@ -218,8 +218,7 @@ visitor list
 */
 
 .visitor-card {
-    margin-bottom: 20px;
-    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
 .visitor-menu button {
@@ -323,4 +322,8 @@ visitor list
     background-color: #1E90FF;
     border-color: #1E90FF;
     color: #fff;
+}
+
+.tab-offset {
+    padding-top: 30px;
 }
