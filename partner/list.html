@@ -85,7 +85,7 @@
                         <div class="content-search col-lg-4">
 
                             <form class="input-group">
-                                <input type="text" class="form-control" placeholder="Поиск спикера или тэга">
+                                <input type="text" class="form-control" placeholder="Поиск партнера">
                           <span class="input-group-btn">
                             <button class="btn btn-default" type="button">Найти</button>
                           </span>
@@ -99,7 +99,7 @@
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#events" aria-controls="events" role="tab"
-                                                              data-toggle="tab">Все спикеры</a></li>
+                                                              data-toggle="tab">Все партнеры</a></li>
 
 
                 </ul>
@@ -107,14 +107,15 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="events">
-                        <table id="speaker-list" class="table table-hover avatar-table">
+                        <table id="partner-list" class="table table-hover avatar-table">
                             <thead>
                             <tr>
                                 <th class="avatar"></th>
-                                <th>Имя</th>
-                                <th>Рейтинги</th>
-                                <th>Тэги</th>
-                                <th>Стоимость</th>
+                                <th>Компания</th>
+                                <th>Всего докладов</th>
+                                <th>Представитель</th>
+                                <th>Телефон</th>
+                                <th>Email</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -176,38 +177,27 @@
     }
 
     function displayPage() {
-        $(document).prop('title', 'Все спикеры');
-            map.forEach(function (speaker) {
-                if(speaker.id > 300000 && speaker.id < 400000)
-                displaySpeakerList($("#speaker-list").find("tbody"), speaker);
+        $(document).prop('title', 'Все партнеры');
+            map.forEach(function (partner) {
+                if(partner.id > 400000){
+                    displayPartnerList($("#partner-list").find("tbody"), partner);
+                }
             });
     }
 
-    function displaySpeakerList(el, speaker) {
-        var strRatings = '';
-        var strTags = '';
-        var speechSet = new Set();
-        speaker.speechArr.forEach(function(speech) {
-            if(speech.rating != null) {
-                strRatings += '<div class=""><a href="' + '../event/view.html?id=' + speech.event.id + '">' + speech.event.name + ' ' + speech.event.version + '</a> : ' +  speech.rating + '%</div>';
-            }
-            if(speech.tags != null) {
-                speech.tags.forEach(function(tag){
-                    if(!speechSet.has(tag)) {
-                        strTags += '<div class="speech-tag">' + tag + '</div>';
-                        speechSet.add(tag);
-                    }
-
-                });
-            }
+    function displayPartnerList(el, partner) {
+        var speechCount = 0;
+        partner.speechArr.forEach(function(speech) {
+            speechCount++;
         });
 
         $(el).append('<tr>' +
-                '<th class="avatar" scope="row"><img class="media-object img-circle img-responsive" src="' + speaker.photo + '"></th>' +
-                '<td> <a href="../speaker/view.html?id=' + speaker.id + '">' + speaker.name + '</a></td>' +
-                '<td>' + strRatings + '</td>' +
-                '<td>' + strTags + '</td>' +
-                '<td>' + speaker.cost + '</td>' +
+                '<th class="avatar" scope="row"><img class="media-object img-circle img-responsive" src="' + partner.logo + '"></th>' +
+                '<td> <a href="../partner/view.html?id=' + partner.id + '">' + partner.name + '</a></td>' +
+                '<td>' + speechCount + '</td>' +
+                '<td>' + partner.contactName + '</td>' +
+                '<td>' + partner.contactPhone + '</td>' +
+                '<td>' + partner.contactEmail + '</td>' +
                 '</tr>' +
                 '<tr>');
     }

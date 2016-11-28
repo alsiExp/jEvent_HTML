@@ -243,6 +243,7 @@
         var event = map.get(eventId);
 //            add conf name
         $("#conf-name").append('Конференция: ' + event.name + ' ' + event.version);
+        $(document).prop('title', 'Конференция: ' + event.name + ' ' + event.version);
 
         event.speechArr.forEach(function (speech) {
             displaySpeeches(elTableSpeaker, speech, speech.speaker, speech.event);
@@ -318,7 +319,7 @@
 
         $(el).append('<tr>' +
                 '<th class="avatar" scope="row"><img class="media-object img-circle img-responsive" src="' + partner.logo + '"></th>' +
-                '<td>' + partner.name + '</td>' +
+                '<td><a href="' + '../partner/view.html?id=' + partner.id + '">' + partner.name + '</a></td>' +
                 '<td>' + partnerStatusMap.get(parseInt(partner.status)) + '</td>' +
                 '<td>' + strSpeakers + '</td>' +
                 '<td>' + partner.contactName + '</td>' +

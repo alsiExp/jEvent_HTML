@@ -8,7 +8,7 @@
     "contactName": "Сергей Васильев",
     "contactPhone": "+7-812-555-33-11",
     "contactEmail": "epam@emam.ru",
-    "jiraLink": "https://ru.atlassian.com/software/jira/try"
+    "jiraLink": "https://ru.atlassian.com/software/jira"
   },
   {
     "id": 400002,
@@ -19,7 +19,7 @@
     "contactName": "Анна",
     "contactPhone": "+7-812-985-31-16",
     "contactEmail": "ok@mail.ru",
-    "jiraLink": "https://ru.atlassian.com/software/jira/try"
+    "jiraLink": "https://ru.atlassian.com/software/jira"
   },
   {
     "id": 400003,
@@ -30,6 +30,6 @@
     "contactName": "Мария Тифлова",
     "contactPhone": "+7-812-985-31-16",
     "contactEmail": "db@db.ru",
-    "jiraLink": "https://ru.atlassian.com/software/jira/try"
+    "jiraLink": "https://ru.atlassian.com/software/jira"
   }
 ]

@@ -13,7 +13,8 @@
     "tags": [
       "#selenium",
       "#paralell"
-    ]
+    ],
+    "jiraLink": "https://ru.atlassian.com/software/jira"
   },
   {
     "id": 200002,
@@ -26,7 +27,8 @@
     "rating": null,
     "tags": [
       "#automaticTesting"
-    ]
+    ],
+    "jiraLink": "https://ru.atlassian.com/software/jira"
   },
   {
     "id": 200003,
@@ -38,7 +40,8 @@
     "source": "jira",
     "rating": null,
     "tags": [
-    ]
+    ],
+    "jiraLink": "https://ru.atlassian.com/software/jira"
   },
   {
     "id": 200004,
@@ -51,7 +54,8 @@
     "rating": null,
     "tags": [
       "#metrics"
-    ]
+    ],
+    "jiraLink": "https://ru.atlassian.com/software/jira"
   },
   {
     "id": 200005,
@@ -66,7 +70,8 @@
     "tags": [
       "#selenium",
       "#paralell"
-    ]
+    ],
+    "jiraLink": "https://ru.atlassian.com/software/jira"
   },
   {
     "id": 200006,
@@ -81,7 +86,8 @@
     "tags": [
       "#String",
       "#JDK9"
-    ]
+    ],
+    "jiraLink": "https://ru.atlassian.com/software/jira"
   },
   {
     "id": 200007,
@@ -96,7 +102,8 @@
     "tags": [
       "#Unsafe",
       "#JDK9"
-    ]
+    ],
+    "jiraLink": "https://ru.atlassian.com/software/jira"
   },
   {
     "id": 200008,
@@ -110,7 +117,8 @@
     "rating": 92.1,
     "tags": [
       "#Spark"
-    ]
+    ],
+    "jiraLink": "https://ru.atlassian.com/software/jira"
   },
   {
     "id": 200009,
@@ -124,7 +132,8 @@
     "rating": 93,
     "tags": [
       "#Java9"
-    ]
+    ],
+    "jiraLink": "https://ru.atlassian.com/software/jira"
   },
   {
     "id": 200010,
@@ -137,7 +146,8 @@
     "source": "jira",
     "rating": 88,
     "tags": [
-    ]
+    ],
+    "jiraLink": "https://ru.atlassian.com/software/jira"
   },
   {
     "id": 200011,
@@ -150,7 +160,8 @@
     "source": "jira",
     "rating": 91,
     "tags": [
-    ]
+    ],
+    "jiraLink": "https://ru.atlassian.com/software/jira"
   },
   {
     "id": 200012,
@@ -162,7 +173,8 @@
     "source": "jira",
     "rating": null,
     "tags": [
-    ]
+    ],
+    "jiraLink": "https://ru.atlassian.com/software/jira"
   },
   {
     "id": 200013,
@@ -174,7 +186,8 @@
     "source": "jira",
     "rating": 96.5,
     "tags": [
-    ]
+    ],
+    "jiraLink": "https://ru.atlassian.com/software/jira"
   },
   {
     "id": 200014,
@@ -187,7 +200,8 @@
     "rating": 97.1,
     "tags": [
       "#JMM"
-    ]
+    ],
+    "jiraLink": "https://ru.atlassian.com/software/jira"
   },
   {
     "id": 200015,
@@ -200,7 +214,8 @@
     "rating": 95,
     "tags": [
       "#streamAPI"
-    ]
+    ],
+    "jiraLink": "https://ru.atlassian.com/software/jira"
   }
 
 ]
