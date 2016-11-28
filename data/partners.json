@@ -7,6 +7,29 @@
     "cost": "250000",
     "contactName": "Сергей Васильев",
     "contactPhone": "+7-812-555-33-11",
-    "contactEmail": "epam@emam.ru"
+    "contactEmail": "epam@emam.ru",
+    "jiraLink": "https://ru.atlassian.com/software/jira/try"
+  },
+  {
+    "id": 400002,
+    "name": "Одноклассники",
+    "logo": "https://v.ok.ru/res/img/logos/ok-znak-orange.png",
+    "status": "1",
+    "cost": "400000",
+    "contactName": "Анна",
+    "contactPhone": "+7-812-985-31-16",
+    "contactEmail": "ok@mail.ru",
+    "jiraLink": "https://ru.atlassian.com/software/jira/try"
+  },
+  {
+    "id": 400003,
+    "name": "Deutsche Bank",
+    "logo": "https://scontent.fhen1-1.fna.fbcdn.net/v/t1.0-1/c12.12.155.155/479990_145874525578823_2051019339_n.jpg?oh=61f7d3cd3f9dd5860ff887f0bc4c418d&oe=58CE435B",
+    "status": "1",
+    "cost": "350000",
+    "contactName": "Мария Тифлова",
+    "contactPhone": "+7-812-985-31-16",
+    "contactEmail": "db@db.ru",
+    "jiraLink": "https://ru.atlassian.com/software/jira/try"
   }
 ]

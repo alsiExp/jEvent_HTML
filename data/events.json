@@ -31,5 +31,16 @@
     "jiraName": "JPOINT",
     "salesCount": 658,
     "salesSum": 1000000
+  },
+  {
+    "id": 100004,
+    "logo": "https://pp.vk.me/c623630/v623630606/15781/BBgzkl5RpHc.jpg",
+    "name": "Joker",
+    "version": "2016 Piter",
+    "date": "14-15 октября 2016",
+    "isFinished": true,
+    "jiraName": "JOKER",
+    "salesCount": 567,
+    "salesSum": 970000
   }
 ]

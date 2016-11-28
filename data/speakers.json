@@ -15,7 +15,7 @@
     "name": "Anton Angelov",
     "description": "Anton is a Quality Assurance Architect at Progress. He is passionate about automation testing and designing test harness and tools, having the best industry development practices in mind. Furthermore, he is an active blogger and the founder of Automate The Planet. Anton is ardent about technologies such as C#, .NET Framework, T4, WPF, SQL Server, Selenium WebDriver, Jenkins. He won MVP status at Code Project (2016) and MVB (Most Valuable Blogger) at DZone. Outside his work at Progress, Anton a trainer at ITCE where he leads trainings related to ISTQB exams. More information about Anton in his blog: <a href='http://automatetheplanet.com/about-anton-angelov/'>http://automatetheplanet.com/about-anton-angelov/</a>.",
     "employer": "Progress",
-    "twitter": null,
+    "twitter": "",
     "photo": "http://images.contentful.com/ut4a3ciohj8i/5c1Hx70OJGmKUWCgkgA6aI/53c03904c85c7fedd793e9af97e161a7/anton-angelov-square-4.png?w=200",
     "phone": "+7-999-000-00-00",
     "email": "angelov@gmail.com",
@@ -42,5 +42,82 @@
     "phone": "+7-999-000-00-00",
     "email": "rex.black@gmail.com",
     "cost": "-17850"
+  },
+  {
+    "id": 300005,
+    "name": "Алексей Шипилёв",
+    "description": "<p>Работает над производительностью Java около 10 лет. За это время он успел позаниматься Apache Harmony в Intel, затем перешёл в Sun Microsystems, а потом и в Oracle, где сегодня работает над Sun/Oracle JDK, главным образом над изменениями, связанными с производительностью JVM, библиотек классов, фреймворков и приложений. Разрабатывает и поддерживает под-проекты OpenJDK: jmh, jcstress, jol. Работает в экспертных группах, связанных с формализацией, тестированием и производительностью concurrency.</p>",
+    "employer": "Oracle",
+    "twitter": "https://twitter.com/shipilev",
+    "photo": "http://2016.jpoint.ru/img/shipilev.png",
+    "phone": "+7-999-000-00-00",
+    "email": "shipilev@gmail.com",
+    "cost": "5850"
+  },
+  {
+    "id": 300006,
+    "name": "Евгений Борисов",
+    "description": "<p>Евгений Борисов разрабатывает на Java с 2001 года и принял участие в большом количестве Enterprise-проектов. Пройдя путь от простого программиста до архитектора и устав от рутины, он вышел в свободные художники. Сегодня Женя пишет и проводит курсы, семинары и мастер классы для различной аудитории: live-курсы по J2EE для офицеров израильской армии. Spring — по WebEx’у для румын, Hibernate через GoToMeeting для канадцев, Troubleshooting и Design Patterns для украинцев.</p>",
+    "employer": "Naya Technologies",
+    "twitter": "https://twitter.com/jekaborisov",
+    "photo": "http://2016.jpoint.ru/img/borisov.jpg",
+    "phone": "+7-999-000-00-00",
+    "email": "jekaborisov@gmail.com",
+    "cost": "-12730"
+  },
+  {
+    "id": 300007,
+    "name": "Андрей Паньгин",
+    "description": "<p>Специализируется на создании ПО для высоконагруженных серверов в проекте Одноклассники. С увлечением копается во внутренностях JVM и JDK. Ранее работал в Sun Microsystems над виртуальной машиной HotSpot.</p>",
+    "employer": "Одноклассники",
+    "twitter": "https://twitter.com/AndreiPangin",
+    "photo": "http://2016.jpoint.ru/img/pangin.png",
+    "phone": "+7-999-000-00-00",
+    "email": "AndreiPangin@mail.ru",
+    "cost": "120"
+  },
+  {
+    "id": 300008,
+    "name": "Олег Анастасьев",
+    "description": "<p>Начал карьеру программиста в далеком 1995 году. Разрабатывал ПО в банковской сфере, телекоме, транспорте. Работает ведущим разработчиком в «Одноклассниках» с 2007 года в команде платформы.</p><p>В его обязанности входит разработка архитектур и решений для высоконагруженных систем, больших хранилищ данных, решение проблем производительности и надежности портала. Также занимается обучением разработчиков внутри компании.</p>",
+    "employer": "Одноклассники",
+    "twitter": "",
+    "photo": "http://2016.jpoint.ru/img/anastasiev.png",
+    "phone": "+7-999-000-00-00",
+    "email": "anastasiev@mail.ru",
+    "cost": "0"
+  },
+  {
+    "id": 300009,
+    "name": "Руслан Черемин",
+    "description": "<p>Разрабатываю программы для торговли на финансовых рынках, танцую, путешествую.</p>",
+    "employer": "Deutsche Bank",
+    "twitter": "https://twitter.com/dj_begemot",
+    "photo": "http://2016.jpoint.ru/img/cheremin.jpg",
+    "phone": "+7-999-000-00-00",
+    "email": "cheremin@mail.ru",
+    "cost": "560"
+  },
+  {
+    "id": 300010,
+    "name": "Барух Садогурский",
+    "description": "<p>Поскольку «религия не позволяет» быть евангелистом, Барух — developer advocate в компании JFrog, и делает в жизни ровно 3 вещи: зависает с разработчиками Bintray и Artifactory, пописывает для них код, и рассказывает о впечатлениях в блогах и на конференциях, таких как JavaOne, Devoxx, OSCON, конечно же JPoint и Joker, да и многих других. И так более десяти лет подряд, ни минуты об этом не жалея.</p>",
+    "employer": "JFrog",
+    "twitter": "https://twitter.com/jbaruch",
+    "photo": "http://2016.jpoint.ru/img/baruch.png",
+    "phone": "+7-999-000-00-00",
+    "email": "jbaruch@gmail.com",
+    "cost": "-5000"
+  },
+  {
+    "id": 300011,
+    "name": "Тагир Валеев",
+    "description": "<p>C недавних пор работает в JetBrains, занимается статическим анализатором кода IntelliJ IDEA, инспекциями и квик-фиксами. Также он кидает патчики в OpenJDK, разрабатывает опенсорсную библиотеку StreamEx и анализатор байткода Java HuntBugs. Известен на Хабрахабре как lany.</p>",
+    "employer": "JetBrains",
+    "twitter": "",
+    "photo": "http://2016.jpoint.ru/img/valeev.png",
+    "phone": "+7-999-000-00-00",
+    "email": "valeev@gmail.com",
+    "cost": "5000"
   }
 ]

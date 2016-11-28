@@ -101,7 +101,7 @@
                     <li role="presentation" class="active"><a href="#events" aria-controls="events" role="tab"
                                                               data-toggle="tab">Участие в конференциях</a></li>
                     <li role="presentation"><a href="#description" aria-controls="description" role="tab"
-                                               data-toggle="tab">Спикер</a></li>
+                                               data-toggle="tab">Партнер</a></li>
 
                 </ul>
 
@@ -114,10 +114,9 @@
                                 <th class="avatar"></th>
                                 <th>Название</th>
                                 <th>Версия</th>
+                                <th>Статус</th>
                                 <th>Доклад</th>
                                 <th>Рейтинг доклада</th>
-                                <th>Тэги</th>
-                                <th>Статус в jira</th>
                                 <th>Дата проведения</th>
                             </tr>
                             </thead>
@@ -129,10 +128,10 @@
 
                     <div role="tabpanel" class="tab-pane tab-offset" id="description">
                     <div class="row">
-                        <div id="speaker-card" class="col-lg-3 col-md-6 col-sm-6 col-xs-12 visitor-card">
+                        <div id="card" class="col-lg-3 col-md-6 col-sm-6 col-xs-12 visitor-card">
 
                         </div>
-                        <div id="speaker-more-info" class="col-lg-9 col-md-6 col-sm-6 col-xs-12">
+                        <div id="more-info" class="col-lg-9 col-md-6 col-sm-6 col-xs-12">
 
                         </div>
                     </div>
@@ -174,25 +173,26 @@
 
 <script type="text/javascript">
     var map;
-    var speakerId = null;
+    var partnerId = null;
 
     function init() {
-        speakerId = parseInt(getUrlParameter('id'));
+        partnerId = parseInt(getUrlParameter('id'));
         initConstMaps();
         map = getData();
         displayPage();
     }
 
     function displayPage() {
-            var speaker = map.get(speakerId);
-//          add speaker name
-            $("#page-name").append('Спикер: ' + speaker.name);
-            $(document).prop('title', 'Спикер: ' + speaker.name);
+            var partner = map.get(partnerId);
+//          add partner name
+            $("#page-name").append('Партнер: ' + partner.name);
+            $(document).prop('title', 'Партнер: ' + partner.name);
 
-            speaker.speechArr.forEach(function (speech) {
-                displayEventList($("#event-list").find("tbody"), speech, speaker, speech.event);
+            partner.speechArr.forEach(function (speech) {
+                displayEventList($("#event-list").find("tbody"), speech, speech.speaker, speech.event);
             });
-            displaySpeakerContent(speaker);
+
+            displayPartnerContent(partner);
     }
 
     function displayEventList(el, speech, speaker, event) {
@@ -209,33 +209,31 @@
                 '<th class="avatar" scope="row"><img class="media-object img-circle img-responsive" src="' + event.logo + '"></th>' +
                 '<td><a href="' + '../event/view.html?id=' + event.id + '">' + event.name + '</a></td>' +
                 '<td>' + event.version + '</td>' +
+                '<td>' + partnerStatusMap.get(parseInt(speech.partner.status)) + '</td>' +
                 '<td><a href="' + '../speech/view.html?id=' + speech.id + '">' + speech.name + '</a></td>' +
                 '<td>' + strRating + '</td>' +
-                '<td>' + strTags + '</td>' +
-                '<td><button type="button" class="btn btn-xs btn-primary" disabled="disabled">' + speechStatusMap.get(parseInt(speech.status)) + '</button></td>' +
                 '<td>' + event.date + '</td>' +
                 '</tr>' +
                 '<tr>');
     }
 
-    function displaySpeakerContent(speaker) {
-        var elCard = $("#speaker-card");
-        var moreInfo = $("#speaker-more-info");
+    function displayPartnerContent(partner) {
+        var elCard = $("#card");
+        var moreInfo = $("#more-info");
         elCard.empty();
         elCard.append(
                '<div class="visitor-img">' +
-               '<img src="' + speaker.photo + '" class="img-circle">' +
+               '<img src="' + partner.logo + '" class="img-circle">' +
                '</div>' +
                '<div class="visitor-description">' +
-               '<p class="visitor-name">' + speaker.name +'</p>' +
-               '<p><strong>Телефон:</strong> <span class="visitor-info">' + speaker.phone + '</span></p>' +
-               '<p><strong>Email:</strong> <span class="visitor-info">' + speaker.email + '</span></p>' +
-               '<p><strong>Twitter:</strong> <span class="visitor-info"><a href="' + speaker.twitter + '" target="_blank">' + speaker.twitter + '</a></span></p>' +
-               '<p><strong>Компания:</strong> <span class="visitor-info">' + speaker.employer + '</span></p>' +
-               '<p><strong>Стоимость:</strong> <span class="visitor-info">' + speaker.cost + '</span></p>'
+               '<p class="visitor-name">' + partner.name +'</p>' +
+               '<p><strong>Представитель:</strong> <span class="visitor-info">' + partner.contactName + '</span></p>' +
+               '<p><strong>Email:</strong> <span class="visitor-info">' + partner.contactEmail + '</span></p>' +
+               '<p><strong>Телефон:</strong> <span class="visitor-info">' + partner.contactPhone + '</span></p>' +
+               '<p><strong>Доходы:</strong> <span class="visitor-info">' + partner.cost + '</span></p>'
         );
         moreInfo.empty();
-        moreInfo.append(speaker.description);
+        moreInfo.append();
     }
 
     init();

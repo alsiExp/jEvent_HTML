@@ -7,6 +7,7 @@ function getData() {
     var speakerMap = new Map();
     var partnerMap = new Map();
 
+    var eventPartnerSet = new Set();
 
     loadData();
 
@@ -17,7 +18,8 @@ function getData() {
 
     dataBinding();
 
-    //console.log(resultMap.size);
+
+
     return resultMap;
 
     function dataBinding() {
@@ -80,15 +82,15 @@ function getData() {
                 if(event.partnerArr == null){
                     event.partnerArr = [];
                 }
-                event.partnerArr.push(partner);
-
+                if(!eventPartnerSet.has(partner)){
+                    event.partnerArr.push(partner);
+                    eventPartnerSet.add(partner);
+                }
                 //speaker
                 if(speaker.partnerArr == null){
                     speaker.partnerArr = [];
                 }
                 speaker.partnerArr.push(partner);
-
-
             }
         });
     }

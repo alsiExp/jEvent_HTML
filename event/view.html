@@ -120,7 +120,7 @@
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a id="tab-speakers" href="#speakers"
                                                               aria-controls="speakers" role="tab"
-                                                              data-toggle="tab">Спикеры</a></li>
+                                                              data-toggle="tab">Доклады</a></li>
                     <li role="presentation"><a id="tab-partners" href="#partners" aria-controls="partners" role="tab"
                                                data-toggle="tab">Партнеры </a></li>
                     <li role="presentation"><a id="tab-conference" href="#conference" aria-controls="conference"
@@ -222,17 +222,12 @@
 </script>
 
 <script src="../js/parser.js" type="text/javascript"></script>
+<script src="../js/constMaps.js" type="text/javascript"></script>
 
 <script type="text/javascript">
     var map;
     var actualSpeechStatuses = new Set();
-
-    /* Enums in maps*/
-    var speechStatusMap = new Map();
-    var partnerStatusMap = new Map();
-
     var eventId = null;
-
 
 
     function displayPage() {
@@ -255,36 +250,21 @@
             speechCount++;
         });
 
-        event.partnerArr.forEach(function (partner) {
-            displayPartner(elTablePartner, partner, event);
-            partnerCount++;
-        });
+        if(event.partnerArr != null) {
+            event.partnerArr.forEach(function (partner) {
+                displayPartner(elTablePartner, partner, event);
+                partnerCount++;
+            });
+        }
         displayActualSpeechesStatuses(actualSpeechStatuses);
         displayEventContent(elTableEvent, event);
         addTabLabels(speechCount, partnerCount);
 
     }
 
-    function initEnums() {
-        speechStatusMap.set(1, "Новый");
-        speechStatusMap.set(2, "Рассмотрение заявки");
-        speechStatusMap.set(3, "Описание доклада");
-        speechStatusMap.set(4, "Тестирование, тренинги");
-        speechStatusMap.set(5, "Требует уточнения");
-        speechStatusMap.set(6, "Фидбек спикера");
-        speechStatusMap.set(7, "Фидбек участников");
-        speechStatusMap.set(8, "Анализ");
-        speechStatusMap.set(9, "Закрыта");
-
-        partnerStatusMap.set(1, '<button type="button" class="btn btn-xs color-gold" disabled="disabled">Gold</button>');
-        partnerStatusMap.set(2, '<button type="button" class="btn btn-xs color-silver" disabled="disabled">Silver</button>');
-        partnerStatusMap.set(3, '<button type="button" class="btn btn-xs color-bronze" disabled="disabled">Bronze</button>');
-        partnerStatusMap.set(4, '<button type="button" class="btn btn-xs color-info" disabled="disabled">Info</button>');
-    }
-
     function init() {
         eventId = parseInt(getUrlParameter('id'));
-        initEnums();
+        initConstMaps();
         map = getData();
         displayPage();
     }
@@ -309,7 +289,7 @@
         }
         speaker.speechArr.forEach(function (speech) {
             if (speech.rating != null) {
-                strRating = strRating + '<div class=""> <a href="' + '../event/view.html?id=' + event.id + '">' + event.name + '</a>' + ' : ' + speech.rating + '%</div>';
+                strRating = strRating + '<div class=""> <a href="' + '../event/view.html?id=' + speech.event.id + '">' + speech.event.name +' ' + speech.event.version + '</a>' + ' : ' + speech.rating + '%</div>';
             }
         });
         speech.tags.forEach(function (tag) {
@@ -386,7 +366,6 @@
             $("#tab-partners").append(' <span class="label label-warning">' + partnerCount + '</span>');
         }
     }
-
 
     init();
 
