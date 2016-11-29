@@ -22,8 +22,23 @@
     <section class="row" id="main-content">
 
         <div id="left-menu" class="col-sm-3 col-md-3 col-lg-2 hidden-xs sidebar">
-            <!--Left content menu here-->
-            <!--from __data-source.html-->
+            <div id="left-event-view-menu">
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="subheader">Действия</li>
+                    <li role="separator" class="divider"></li>
+                    <li id="create-new" class="create-new"><a class="" href="#"><i
+                            class="fa fa-plus"
+                            aria-hidden="true"></i>Добавить пользователя</a>
+                    </li>
+
+                    <li id="update" class=""><a class="" href="#"><i
+                            class="fa fa-refresh"
+                            aria-hidden="true"></i>Обновить</a>
+                    </li>
+
+                </ul>
+
+            </div>
         </div>
 
         <div class="col-sm-9 col-md-9 col-lg-10 main">
@@ -83,7 +98,7 @@
                     <th class="avatar" scope="row"><img class="media-object img-circle img-responsive" src="../img/team/ahmetzyanov.jpg"></th>
                     <td>Руслан</td>
                     <td>Ахметзянов</td>
-                    <td><button type="button" class="btn btn-xs btn-danger" disabled="disabled">Не активен</button></td>
+                    <td><button type="button" class="btn btn-xs btn-primary" disabled="disabled">Активен</button></td>
                     <td>
                         <button type="button" class="btn btn-xs btn-success" disabled="disabled">User</button>
                     </td>
@@ -95,7 +110,7 @@
                     <th class="avatar" scope="row"><img class="media-object img-circle img-responsive" src="../img/team/zverev.jpg"></th>
                     <td>Максим</td>
                     <td>Зверев</td>
-                    <td><button type="button" class="btn btn-xs btn-primary" disabled="disabled">Активен</button></td>
+                    <td><button type="button" class="btn btn-xs btn-danger" disabled="disabled">Заблокирован</button></td>
                     <td>
                         <button type="button" class="btn btn-xs btn-success" disabled="disabled">User</button>
                     </td>
@@ -142,8 +157,6 @@
     $("#navigation").load("../je_templates/__data-source.html #navigation nav");
     //    add footer
     $("#footer").load("../je_templates/__data-source.html #footer .container");
-    //    add left menu for tasks
-    $("#left-menu").load("../je_templates/__data-source.html #left-user-menu");
 </script>
 </body>
 
